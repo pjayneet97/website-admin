@@ -1,0 +1,50 @@
+<p>signup works!</p>
+
+
+<div class="container my-5">
+    <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
+        <input 
+            type="email" 
+            placeholder="Enter your Email Address" 
+            name="email" 
+            ngModel 
+            required 
+            [(ngModel)]="signupForm.name" 
+            #email="ngModel"
+            minlength="10"
+        >
+        <p *ngIf="email.invalid && (email.dirty || email.touched)">
+            <small class="form-text text-danger" *ngIf="email.errors.required">Email is
+                required.</small>
+            <small class="form-text text-danger" *ngIf="email.errors.minlength">Email must be at least
+                10 characters long.</small>
+        </p><br><br>
+        
+        <input 
+            type="text" 
+            placeholder="Enter your site Domain Name" 
+            name="domainName" 
+            ngModel 
+            required 
+            [(ngModel)]="existdomain"
+            (keypress)="OnlyText($event)"
+        ><br><br>
+        
+        <!-- <small>{{existdomain}}</small> -->
+        <div *ngIf="isExist(existdomain) else notExist">
+            <small>{{existdomain}} is already taken</small>
+        </div>
+        <ng-template #notExist>
+            <small>{{existdomain}}</small>
+        </ng-template>
+        
+        
+        <br><br>
+        
+        <input type="password" placeholder="Create your Secret Password" name="password" ngModel required><br><br>
+    
+        <button type="submit">Sign Up</button><br><br>
+    
+        <p>if you already have an account <span><a routerLink="/auth">Click here</a></span></p>
+    </form>
+</div>

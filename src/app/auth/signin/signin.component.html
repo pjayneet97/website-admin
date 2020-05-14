@@ -1,0 +1,23 @@
+<p>signin works!</p>
+
+
+<div class="container my-5">
+    <form (ngSubmit)="signin(signinForm)" #signinForm="ngForm">
+        <input type="email" placeholder="email" name="email" ngModel
+        required><br><br>
+        <input type="password" placeholder="Password" minlength="8" maxlength="12"
+        name="password" ngModel required [(ngModel)]="signinForm.name" #password="ngModel">
+        <p *ngIf="password.invalid && (password.dirty || password.touched)">
+            <small class="form-text text-danger" *ngIf="password.errors.required">Password is
+                required.</small>
+            <small class="form-text text-danger" *ngIf="password.errors.minlength">Password must be at least
+                8 characters long.</small>
+        </p><br><br>
+    
+        <button type="submit" [disabled]="!signinForm.valid">Login</button><br><br>
+    
+        <p>Forget Password <span><a routerLink="/auth/forget-password">Click here</a></span></p>
+    
+        <p>if you don't have an account <span><a routerLink="signup">Click here</a></span></p>
+    </form>
+</div>

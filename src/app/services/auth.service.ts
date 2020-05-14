@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { CommonService } from '../common.service';
+import { CommonService } from 'src/app/services/common.service';
 
 
 @Injectable({
@@ -10,106 +10,170 @@ import { CommonService } from '../common.service';
 })
 export class AuthService {
 
-  constructor(public afAuth:AngularFireAuth,public db:AngularFirestore,public router:Router,public common:CommonService) {
-    this.afAuth.authState.subscribe(res=>{
-      if(res){
-        localStorage.setItem("uid",res.uid)
-        localStorage.setItem("email",res.email)
+  constructor(public afAuth: AngularFireAuth, public db: AngularFirestore, public router: Router, public common: CommonService) {
+    this.afAuth.authState.subscribe(res => {
+      if (res) {
+        localStorage.setItem("uid", res.uid)
+        localStorage.setItem("email", res.email)
         this.router.navigateByUrl("/dashboard")
       }
-      else{
+      else {
         localStorage.removeItem("uid")
         localStorage.removeItem("email")
 
         this.router.navigateByUrl("/auth")
       }
     })
-   }
+  }
 
-   createAccount(cred:{email:string,password:string},profileInfo){
-      this.common.showLoader()
-     return this.afAuth.createUserWithEmailAndPassword(cred.email,cred.password).then(res=>{
-       localStorage.setItem("uid",res.user.uid)
-       localStorage.setItem("email",res.user.email)
-       return this.db.collection("users").doc(res.user.uid).set(Object.assign({}, )).then(res=>{
+  createAccount(cred: { email: string, password: string }, profileInfo) {
+    this.common.showLoader()
+    return this.afAuth.createUserWithEmailAndPassword(cred.email, cred.password).then(res => {
+      localStorage.setItem("uid", res.user.uid)
+      localStorage.setItem("email", res.user.email)
+      return this.db.collection("users").doc(res.user.uid).set(Object.assign({}, profileInfo)).then(res => {
         this.router.navigateByUrl("/dashboard")
-        this.common.showToast("success","Successfull","Your Account is Successfully Created")
+        this.common.showToast("success", "Successfull", "Your Account is Successfully Created")
         return res
-       })
-     }).catch(err=>{
-       // code to generate a notification alert of wrong credentials
-       this.common.showToast("error","Error",err)
-       return err
-     }).finally(()=>{
+      })
+    }).catch(err => {
+      // code to generate a notification alert of wrong credentials
+      this.common.showToast("error", "Error", err)
+      return err
+    }).finally(() => {
       this.common.stopLoader()
-     })
-   }
+    })
+  }
 
-   signIn(email,password){
-     this.common.showLoader()
-     console.log(email,password)
+  signIn(email, password) {
+    this.common.showLoader()
+    console.log(email, password)
 
-     return this.afAuth.signInWithEmailAndPassword(email,password).then(res=>{
-      localStorage.setItem("uid",res.user.uid)
-      localStorage.setItem("email",res.user.email)
-      this.common.showToast("success","Successfull","You are LoggedIn successfully")
+    return this.afAuth.signInWithEmailAndPassword(email, password).then(res => {
+      localStorage.setItem("uid", res.user.uid)
+      localStorage.setItem("email", res.user.email)
+      this.common.showToast("success", "Successfull", "You are LoggedIn successfully")
       this.router.navigateByUrl("/dashboard")
       return res.user.uid
-     }).catch(err=>{
+    }).catch(err => {
       // code to generate a notification alert of wrong credentials
-      this.common.showToast("error","Error",err)
+      this.common.showToast("error", "Error", err)
       return err
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
-   }
+  }
 
-   resetPassword(email){
+  resetPassword(email) {
     this.common.showLoader()
-    return this.afAuth.sendPasswordResetEmail(email).then(res=>{
+    return this.afAuth.sendPasswordResetEmail(email).then(res => {
       this.router.navigateByUrl("/auth")
-      this.common.showToast("success","Reset link Send","Check your email for password reset link")
-    }).finally(()=>{
+      this.common.showToast("success", "Reset link Send", "Check your email for password reset link")
+    }).finally(() => {
       this.common.stopLoader()
     })
-   }
+  }
 
-   isAuthenticated(){
-    if(localStorage.getItem("uid")){
+  isAuthenticated() {
+    if (localStorage.getItem("uid")) {
       return true
     }
-    else{
+    else {
       return false
     }
-   }
+  }
 
-   logOut(){
-      this.common.showLoader()
-      localStorage.removeItem("uid")
-      localStorage.removeItem("email")
-      this.afAuth.signOut()
-      window.location.reload()
-   }
+  logOut() {
+    this.common.showLoader()
+    localStorage.removeItem("uid")
+    localStorage.removeItem("email")
+    this.afAuth.signOut()
+  }
 
-   getUid(){
-     return localStorage.getItem("uid")
-   }
-   getEmail(){
+  getUid() {
+    return localStorage.getItem("uid")
+  }
+  getEmail() {
     return localStorage.getItem("email")
-   }
+  }
 
-   getProfile(){
-     return this.db.collection("users").doc(this.getUid()).valueChanges()
-   }
-   updateProfile(profileInfo:{firstName:string,lastName:string,mobile:string,gender:string}){
-     return this.db.collection("users").doc(this.getUid()).set(profileInfo).then(res=>{
-       this.common.showToast("success","Update Successful","Profile Details Updated Successfully")
-       return res
-     }).catch(err=>{
-      this.common.showToast("error","Error Occoured","Unable to perform this operation")
+  getProfile() {
+    return this.db.collection("users").doc(this.getUid()).valueChanges()
+  }
+
+  updateProfile(profileInfo: { firstName: string, lastName: string, mobile: string, gender: string }) {
+    return this.db.collection("users").doc(this.getUid()).set(profileInfo).then(res => {
+      this.common.showToast("success", "Update Successful", "Profile Details Updated Successfully")
+      return res
+    }).catch(err => {
+      this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err
-     })
-   }
+    })
+  }
 
 
+
+
+  users: any;
+  domainExist = false;
+  domainName_list = [];
+  getDomains() {
+    this.db.collection("users").snapshotChanges().subscribe(data => {
+      this.users = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          domainName: e.payload.doc.data()['domainName'],
+        };
+      })
+      for (var i = 0; i < this.users.length; i++) {
+        var domains = this.users[i]['domainName']
+        this.domainName_list.push(domains)
+      }
+    })
+    return this.domainName_list;
+  }
+
+
+
+  // users: any;
+  // domainExist=false;
+  // DomainExist(existdomain) {
+  //   let mydata = this.db.collection("users").snapshotChanges().subscribe(data => {
+  //     this.users = data.map(e => {
+  //       return {
+  //         id: e.payload.doc.id,
+  //         domainName: e.payload.doc.data()['domainName'],
+  //       };
+  //     })
+  //     // console.log(this.users[0]['domainName']);
+  //     // console.log(this.users.length);
+
+  //     var domainName_list = [];
+
+  //     for (var i=0; i<this.users.length; i++){
+  //       var domains = this.users[i]['domainName']
+  //       domainName_list.push(domains)
+  //     }
+  //     // console.log(domainName_list)
+  //     if (domainName_list.includes(existdomain)){
+  //       // console.log("Domain already exist")
+  //       "Domain already exist"
+  //       this.domainExist = true
+  //     }else{
+  //       // console.log("Domain not exist")
+  //       "Domain not exist"
+  //       this.domainExist = false
+  //     }
+  //   })
+  //   return mydata;
+  // }
+
+
+
+
+
+
+
+
+  // end class here
 }
