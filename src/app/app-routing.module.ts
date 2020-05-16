@@ -8,6 +8,8 @@ import { SigninComponent } from '../app/auth/signin/signin.component';
 import { SignupComponent} from '../app/auth/signup/signup.component';
 import { ForgetPasswordComponent} from '../app/auth/forget-password/forget-password.component';
 import { DashboardComponent } from '../app/dashboard/dashboard.component';
+import { HomeComponent } from '../app/dashboard/home/home.component';
+import { DigitalWebsiteComponent } from 'src/app/dashboard/digital-website/digital-website.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,8 @@ const routes: Routes = [
     {path:"forget-password",component:ForgetPasswordComponent}
   ]},
   {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuardService],children:[
-    {path:"",component:DashboardComponent},
+    {path:"",component:HomeComponent},
+    {path:"digital-website",component:DigitalWebsiteComponent},
   ]},
 ];
 

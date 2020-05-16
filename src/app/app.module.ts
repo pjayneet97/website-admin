@@ -17,6 +17,8 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DigitalWebsiteComponent } from './dashboard/digital-website/digital-website.component';
+import { HomeComponent } from './dashboard/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SigninComponent,
     SignupComponent,
     ForgetPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    DigitalWebsiteComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
-<p>dashboard works!</p>
+<div class="d-flex justify-content-between border-botton shadow-sm py-2 px-3 mb-5">
+    <p><a routerLink="/dashboard"><i class="fa fa-arrow-left"></i> Back</a></p>
+    <p>{{email}}</p>
+    <button (click)="logout()"><i class="fa fa-power-off"></i> Logout</button>
+</div>
 
-<h3>{{email}}</h3>
-
-<button (click)="logout()">Logout</button>
+<router-outlet></router-outlet>

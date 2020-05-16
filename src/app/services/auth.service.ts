@@ -111,11 +111,7 @@ export class AuthService {
     })
   }
 
-
-
-
   users: any;
-  domainExist = false;
   domainName_list = [];
   getDomains() {
     this.db.collection("users").snapshotChanges().subscribe(data => {
@@ -133,47 +129,7 @@ export class AuthService {
     return this.domainName_list;
   }
 
-
-
-  // users: any;
-  // domainExist=false;
-  // DomainExist(existdomain) {
-  //   let mydata = this.db.collection("users").snapshotChanges().subscribe(data => {
-  //     this.users = data.map(e => {
-  //       return {
-  //         id: e.payload.doc.id,
-  //         domainName: e.payload.doc.data()['domainName'],
-  //       };
-  //     })
-  //     // console.log(this.users[0]['domainName']);
-  //     // console.log(this.users.length);
-
-  //     var domainName_list = [];
-
-  //     for (var i=0; i<this.users.length; i++){
-  //       var domains = this.users[i]['domainName']
-  //       domainName_list.push(domains)
-  //     }
-  //     // console.log(domainName_list)
-  //     if (domainName_list.includes(existdomain)){
-  //       // console.log("Domain already exist")
-  //       "Domain already exist"
-  //       this.domainExist = true
-  //     }else{
-  //       // console.log("Domain not exist")
-  //       "Domain not exist"
-  //       this.domainExist = false
-  //     }
-  //   })
-  //   return mydata;
-  // }
-
-
-
-
-
-
-
+  
 
   // end class here
 }

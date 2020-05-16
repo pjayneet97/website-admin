@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   isCreated = false;
   existdomain;
   
+  
 
   constructor( private authService: AuthService ) { }
 
