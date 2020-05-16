@@ -62,15 +62,4 @@ export class DigitalWebsiteComponent implements OnInit {
     form.reset()
   }
 
-
-  onChangeState(event){
-    // console.log(event.target.value)
-  }
-
-  contactInfoForm(form: NgForm){
-    let data = Object.assign({}, form.value);
-    console.log(form)
-    console.log(data)
-  }
-
 }

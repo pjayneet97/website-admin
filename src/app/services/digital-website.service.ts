@@ -34,16 +34,5 @@ export class DigitalWebsiteService {
     })
   }
 
-  // contactInfo(fname:string,lname:string,email:string,phone:string,whatsapp:string,websiteName:string,address){
-  //   return this.db.collection("users").doc(this.auth.getUid()).update(fname,lname,email,phone,whatsapp,websiteName,{address:address}).then(res => {
-  //     this.common.showToast("success", "Update Successful", "Your social media links Updated Successfully")
-  //     return res;
-  //   }).catch(err => {
-  //     this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
-  //     return err;
-  //   })
-  // }
-
-
 
 }
