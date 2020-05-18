@@ -45,7 +45,15 @@ export class DigitalWebsiteService {
     })
   }
 
-
+  aboutUs(aboutUsContent){
+    return this.db.collection("users").doc(this.auth.getUid()).update({aboutUs:aboutUsContent}).then(res => {
+      this.common.showToast("success", "Update Successful", "About Us Updated Successfully")
+      return res;
+    }).catch(err => {
+      this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
+      return err;
+    })
+  }
 
 
 }

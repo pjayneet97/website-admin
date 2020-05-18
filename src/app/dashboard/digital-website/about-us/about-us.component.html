@@ -1,3 +1,38 @@
 <p>
   about-us works!
 </p>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-4 text-left">
+      <h3>Add New</h3><hr>
+      <form #form="ngForm" autocomplete="off" (submit)="saveAboutUs(form)">
+        <div class="row form-group">
+          <div class="col input-group mb-2">
+            <input type="text" class="form-control" placeholder="Title" name="title" ngModel required>
+          </div>
+        </div>
+    
+        <ckeditor [editor]="Editor" (change)="onChange($event)"></ckeditor>
+    
+        <button type="submit" class="my-2">Save</button>
+      </form>
+    </div>
+    <div class="col-8 text-left">
+      <div class="media position-relative card p-3 shadow-sm">
+        <div class="media-body">
+          <h5 class="mt-0">{{aboutData.title}}</h5>
+          <div [innerHTML]="aboutData.description"></div>
+          <a href="#" class="mr-4">Edit</a>
+          <a href="#" class="">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<br>
+
+

@@ -22,6 +22,8 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { ContactInforamtionsComponent } from './dashboard/digital-website/contact-inforamtions/contact-inforamtions.component';
 import { AboutUsComponent } from './dashboard/digital-website/about-us/about-us.component';
 
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,8 @@ import { AboutUsComponent } from './dashboard/digital-website/about-us/about-us.
     AngularFireAuthModule,
     AngularFireStorageModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot(), // ToastrModule added
+    CKEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
