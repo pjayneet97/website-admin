@@ -41,7 +41,8 @@ export class SignupComponent implements OnInit {
   isExist(event){
    if (this.authService.getDomains().includes(event)){
     return true
-   }else{
+   }
+   else{
     return false
    }
   }

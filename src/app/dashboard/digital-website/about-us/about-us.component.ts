@@ -12,9 +12,11 @@ import { DigitalWebsiteService } from 'src/app/services/digital-website.service'
 export class AboutUsComponent implements OnInit {
 
   public Editor = ClassicEditor;
+
   aboutContent:any;
   allWebSiteData:any;
   aboutData:any;
+  
 
   constructor(
     private webService:DigitalWebsiteService
@@ -27,7 +29,6 @@ export class AboutUsComponent implements OnInit {
       if (this.allWebSiteData.aboutUs){
         // console.log("True")
         this.aboutData = this.allWebSiteData.aboutUs;
-        console.log(this.aboutData)
       }
       else{
         console.log("False")
@@ -37,18 +38,14 @@ export class AboutUsComponent implements OnInit {
 
   public onChange({ editor }: ChangeEvent) {
     const data = editor.getData();
-    this.aboutContent = data;    
+    this.aboutContent = data;        
   }
 
   saveAboutUs(form:NgForm){
-    console.log(form.value.title)
-    console.log(this.aboutContent)
-
     let aboutUs = {
       title:form.value.title,
       description:this.aboutContent
     }
-
     this.webService.aboutUs(aboutUs)
   }
 

@@ -5,11 +5,11 @@ import { DigitalWebsiteService } from 'src/app/services/digital-website.service'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-digital-website',
-  templateUrl: './digital-website.component.html',
-  styleUrls: ['./digital-website.component.scss']
+  selector: 'app-social-media',
+  templateUrl: './social-media.component.html',
+  styleUrls: ['./social-media.component.scss']
 })
-export class DigitalWebsiteComponent implements OnInit {
+export class SocialMediaComponent implements OnInit {
 
   constructor(
     private digitalcard: DigitalWebsiteService,
@@ -63,4 +63,3 @@ export class DigitalWebsiteComponent implements OnInit {
   }
 
 }
-

@@ -1,15 +1,8 @@
-<p>
-  contact-inforamtions works!
-</p>
-
-
-<div class="container my-5 text-left">
+<div class="container">
   <h3>Contact Informations</h3>
   <hr>
   <form #form="ngForm" autocomplete="off" (submit)="contactInforamtions(form)">
-
-
-    <fieldset class="border p-3 mb-3 shadow-sm">
+    <fieldset class="border p-3 mb-3">
       <legend class="w-auto">Personal Information:</legend>
 
       <div class="row form-group">
@@ -22,31 +15,33 @@
       </div>
 
       <div class="form-group">
-      <div class="input-group mb-2 mr-sm-2 mb-2">
-        <div class="input-group-prepend">
-          <select class="custom-select rounded-0"  name="phoneNoCode" ngModel required>
-            <option selected disabled>Country Code</option>
-            <option value="91">91</option>
-            <option value="92">92</option>
-            <option value="93">93</option>
-          </select>
+        <div class="input-group mb-2 mr-sm-2 mb-2">
+          <div class="input-group-prepend">
+            <select class="custom-select rounded-0" name="phoneNoCode" ngModel required>
+              <option selected disabled>Country Code</option>
+              <option value="91">91</option>
+              <option value="92">92</option>
+              <option value="93">93</option>
+            </select>
+          </div>
+          <input type="text" class="form-control" placeholder="Phone Number" name="phoneNo" ngModel
+            (keypress)="OnlyDigit($event)" maxlength="10" required>
         </div>
-        <input type="text" class="form-control" placeholder="Phone Number" name="phoneNo" ngModel (keypress)="OnlyDigit($event)" maxlength="10" required>
       </div>
-      </div>
-      
+
       <div class="form-group">
-      <div class="input-group mb-2 mr-sm-2 mb-2">
-        <div class="input-group-prepend">
-          <select class="custom-select rounded-0"  name="whatsappNoCode" ngModel required>
-            <option selected disabled>Country Code</option>
-            <option value="91">91</option>
-            <option value="92">92</option>
-            <option value="93">93</option>
-          </select>
+        <div class="input-group mb-2 mr-sm-2 mb-2">
+          <div class="input-group-prepend">
+            <select class="custom-select rounded-0" name="whatsappNoCode" ngModel required>
+              <option selected disabled>Country Code</option>
+              <option value="91">91</option>
+              <option value="92">92</option>
+              <option value="93">93</option>
+            </select>
+          </div>
+          <input type="text" class="form-control" placeholder="Whatsapp Number" name="whatsappNo" ngModel
+            (keypress)="OnlyDigit($event)" maxlength="10" required>
         </div>
-        <input type="text" class="form-control" placeholder="Whatsapp Number" name="whatsappNo" ngModel (keypress)="OnlyDigit($event)" maxlength="10" required>
-      </div>
       </div>
 
       <div class="row form-group">
@@ -54,7 +49,7 @@
           <input type="email" class="form-control" placeholder="Email Address" name="email" ngModel required>
         </div>
       </div>
-      
+
       <div class="row form-group">
         <div class="col input-group mb-2">
           <input type="text" class="form-control" placeholder="Shop Name" name="shopName" ngModel required>
@@ -64,7 +59,7 @@
 
     </fieldset>
 
-    <fieldset class="border p-3 mb-3 shadow-sm">
+    <fieldset class="border p-3 mb-3">
       <legend class="w-auto">Address:</legend>
 
       <div class="form-group">
@@ -95,7 +90,8 @@
         </div>
         <div class="form-group col-md-2">
           <label for="inputZip">Zip Code</label>
-          <input type="text" class="form-control" name="zipCode" ngModel (keypress)="OnlyDigit($event)" maxlength="8" required>
+          <input type="text" class="form-control" name="zipCode" ngModel (keypress)="OnlyDigit($event)" maxlength="8"
+            required>
         </div>
       </div>
       <div class="form-group">
@@ -108,8 +104,6 @@
       </div>
     </fieldset>
 
-
-
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-info rounded-0 px-4">Save</button>
   </form>
 </div>

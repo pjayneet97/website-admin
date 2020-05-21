@@ -1,0 +1,14 @@
+#sidebarMenu{
+    min-height: 100vh;
+}
+
+.nav-link{
+    color: #222;
+}
+
+.nav-item:hover{
+    background-color: #17a2b8;
+    .nav-link{
+        color: #fff;
+    }
+}

@@ -23,6 +23,15 @@ import { ContactInforamtionsComponent } from './dashboard/digital-website/contac
 import { AboutUsComponent } from './dashboard/digital-website/about-us/about-us.component';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { PaymentsComponent } from './dashboard/digital-website/payments/payments.component';
+import { HeaderComponent } from './header/header.component';
+import { SocialMediaComponent } from './dashboard/digital-website/social-media/social-media.component';
+import { ShowWebsiteTemplateComponent } from './dashboard/digital-website/show-website-template/show-website-template.component';
+
+import { MediaComponent } from './dashboard/digital-website/media/media.component';
+import { ImageGalleryComponent } from './dashboard/digital-website/media/image-gallery/image-gallery.component';
+import { VideoGalleryComponent } from './dashboard/digital-website/media/video-gallery/video-gallery.component';
+import { HelpCenterComponent } from './dashboard/help-center/help-center.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +44,15 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     DigitalWebsiteComponent,
     HomeComponent,
     ContactInforamtionsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    PaymentsComponent,
+    HeaderComponent,
+    SocialMediaComponent,
+    ShowWebsiteTemplateComponent,
+    MediaComponent,
+    ImageGalleryComponent,
+    VideoGalleryComponent,
+    HelpCenterComponent,
   ],
   imports: [
     BrowserModule,
