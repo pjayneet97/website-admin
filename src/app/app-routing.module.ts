@@ -19,6 +19,7 @@ import { HelpCenterComponent } from './dashboard/help-center/help-center.compone
 import { MediaComponent } from './dashboard/digital-website/media/media.component';
 import { ImageGalleryComponent } from './dashboard/digital-website/media/image-gallery/image-gallery.component';
 import { VideoGalleryComponent } from './dashboard/digital-website/media/video-gallery/video-gallery.component';
+import { MyAccountComponent } from './dashboard/digital-website/my-account/my-account.component';
 
 const routes: Routes = [
   {path:"auth",component:AuthComponent,children:[
@@ -33,6 +34,7 @@ const routes: Routes = [
       {path:"about-us",component:AboutUsComponent},
       {path:"contact-us",component:ContactInforamtionsComponent},
       {path:"payments",component:PaymentsComponent},
+      {path:"my-account",component:MyAccountComponent},
       {path:"my-website",component:ShowWebsiteTemplateComponent},
 
       {path:"media",component:MediaComponent,children:[
