@@ -33,6 +33,7 @@ import { ImageGalleryComponent } from './dashboard/digital-website/media/image-g
 import { VideoGalleryComponent } from './dashboard/digital-website/media/video-gallery/video-gallery.component';
 import { HelpCenterComponent } from './dashboard/help-center/help-center.component';
 import { MyAccountComponent } from './dashboard/digital-website/my-account/my-account.component';
+import { ProductsComponent } from './dashboard/digital-website/products/products.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MyAccountComponent } from './dashboard/digital-website/my-account/my-ac
     VideoGalleryComponent,
     HelpCenterComponent,
     MyAccountComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

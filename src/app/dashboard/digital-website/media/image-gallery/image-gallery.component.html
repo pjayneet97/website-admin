@@ -1,1 +1,31 @@
-<p>image-gallery works!</p>
+<div class="bg-white border text-center mb-5 pb-5">
+    <div *ngFor="let img of uploadImgList; let i = index">
+        <div class="alert alert-light border-bottom rounded-0 my-0 d-flex justify-content-between" role="alert">
+            <span class="text-left"><span class="font-weight-normal"><span class="text-primary"><svg class="bi bi-file-earmark"
+                            width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z" />
+                            <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z" />
+                        </svg></span> {{img.fileName}}</span><span class="text-muted file-size">&nbsp;&nbsp;&nbsp;
+                    {{img.size}}K</span></span>
+
+            <span class="text-left cursor-pointer" (click)="removeFile(i)" title="Cancel"><svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                        <path fill-rule="evenodd"
+                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                    </svg></span>
+        </div>
+    </div>
+
+
+    <div class="custom-file py-5">
+        <input type="file" name="file" id="file" class="inputfile custom-file-input" multiple
+            (change)="imageProcessing($event)" #Image />
+        <label for="file">Select Photos from Your Device</label>
+        <br>
+        <button type="submit" class="btn btn-info rounded-0 px-4 my-3" [disabled]="Image.value==''">Upload</button>
+    </div>
+</div>

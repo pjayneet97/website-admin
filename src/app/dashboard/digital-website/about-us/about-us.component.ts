@@ -13,9 +13,9 @@ export class AboutUsComponent implements OnInit {
 
   public Editor = ClassicEditor;
 
+  aboutData:any={title:""}
   aboutContent:any;
   allWebSiteData:any;
-  aboutData:any;
   
 
   constructor(
@@ -24,14 +24,16 @@ export class AboutUsComponent implements OnInit {
 
   ngOnInit() {
     this.webService.getWebsiteData().subscribe(res=>{
-      this.allWebSiteData=res
-      // console.log(this.allWebSiteData.socialMedia)
-      if (this.allWebSiteData.aboutUs){
-        // console.log("True")
-        this.aboutData = this.allWebSiteData.aboutUs;
-      }
-      else{
-        console.log("False")
+      if(res){
+        this.allWebSiteData=res
+        // console.log(this.allWebSiteData.socialMedia)
+        if (this.allWebSiteData.aboutUs){
+          // console.log("True")
+          this.aboutData = this.allWebSiteData.aboutUs;
+        }
+        else{
+          console.log("False")
+        }
       }
     })
   }

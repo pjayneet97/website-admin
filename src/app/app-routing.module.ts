@@ -20,6 +20,7 @@ import { MediaComponent } from './dashboard/digital-website/media/media.componen
 import { ImageGalleryComponent } from './dashboard/digital-website/media/image-gallery/image-gallery.component';
 import { VideoGalleryComponent } from './dashboard/digital-website/media/video-gallery/video-gallery.component';
 import { MyAccountComponent } from './dashboard/digital-website/my-account/my-account.component';
+import { ProductsComponent } from './dashboard/digital-website/products/products.component';
 
 const routes: Routes = [
   {path:"auth",component:AuthComponent,children:[
@@ -36,6 +37,7 @@ const routes: Routes = [
       {path:"payments",component:PaymentsComponent},
       {path:"my-account",component:MyAccountComponent},
       {path:"my-website",component:ShowWebsiteTemplateComponent},
+      {path:"products",component:ProductsComponent},
 
       {path:"media",component:MediaComponent,children:[
         {path:"",component:MediaComponent},

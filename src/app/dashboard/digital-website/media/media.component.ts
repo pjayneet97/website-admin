@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MediaComponent implements OnInit {
 
+  currentJustify = 'justified';
+
   constructor() { }
 
   ngOnInit(): void {

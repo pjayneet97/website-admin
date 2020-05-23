@@ -1,0 +1,41 @@
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1em;
+    color: #222;
+    background-color: #f8f9fa;
+    display: inline-block;
+    border: 1px solid #b8b9b9;
+    padding: 5px 15px 5px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #f1f2f3;
+    outline: none;
+}
+
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.inputfile:focus + label {
+	outline: none;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.file-size{
+	font-size: 13px;
+	color:#b8b9b9;
+}
+
+.cursor-pointer{
+	cursor: pointer;
+}
