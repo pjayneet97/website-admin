@@ -36,6 +36,8 @@ import { MyAccountComponent } from './dashboard/digital-website/my-account/my-ac
 import { ProductsComponent } from './dashboard/digital-website/products/products.component';
 import { ServicesComponent } from './dashboard/digital-website/services/services.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { ExtendValidityComponent } from './dashboard/digital-website/extend-validity/extend-validity.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     MyAccountComponent,
     ProductsComponent,
     ServicesComponent,
+    ExtendValidityComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     CKEditorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -22,6 +22,7 @@ import { VideoGalleryComponent } from './dashboard/digital-website/media/video-g
 import { MyAccountComponent } from './dashboard/digital-website/my-account/my-account.component';
 import { ProductsComponent } from './dashboard/digital-website/products/products.component';
 import { ServicesComponent } from './dashboard/digital-website/services/services.component';
+import { ExtendValidityComponent } from './dashboard/digital-website/extend-validity/extend-validity.component';
 
 const routes: Routes = [
   {path:"auth",component:AuthComponent,children:[
@@ -33,6 +34,7 @@ const routes: Routes = [
     {path:"",component:HomeComponent},
     {path:"digital-website",component:DigitalWebsiteComponent,children:[
       {path:"social-media",component:SocialMediaComponent},
+      {path:"extend-validity",component:ExtendValidityComponent},
       {path:"about-us",component:AboutUsComponent},
       {path:"contact-us",component:ContactInforamtionsComponent},
       {path:"services",component:ServicesComponent},

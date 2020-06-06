@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">digi-builder</string>
+    <string name="title_activity_main">digi-builder</string>
+    <string name="package_name">com.splixcube.digibuilder</string>
+    <string name="custom_url_scheme">com.splixcube.digibuilder</string>
+</resources>

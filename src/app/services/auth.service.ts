@@ -130,6 +130,22 @@ export class AuthService {
     })
   }
 
+  extendValidity(years,payment){
+    return new Promise(resolve=>{
+      this.db.collection("users").doc(this.getUid()).get()
+       .subscribe(
+        (res) => {
+          let oldvalidity = res.data().validity.toDate()
+          console.log(oldvalidity)
+          let extendDays=oldvalidity.getDate() + 365*years
+          oldvalidity.setDate(extendDays)
+          let newValidity = firebase.firestore.Timestamp.fromDate(oldvalidity)
+          let newres = this.db.collection("users").doc(this.getUid()).update(Object.assign({},{validity:newValidity,payment:payment}))
+          resolve(newres);
+       })
+    })
+  }
+
   
 
 

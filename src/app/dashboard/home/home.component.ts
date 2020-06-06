@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  cardDetails=null
+  constructor(public authService:AuthService,public common:CommonService) { }
 
   themeTemplates = [
     {
@@ -75,6 +77,13 @@ export class HomeComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    this.common.showLoader()
+    this.authService.getProfile().subscribe(res=>{
+      console.log(res)
+      this.cardDetails=res
+      this.common.stopLoader()
+    })
   }
+
 
 }
