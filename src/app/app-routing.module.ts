@@ -21,6 +21,7 @@ import { ImageGalleryComponent } from './dashboard/digital-website/media/image-g
 import { VideoGalleryComponent } from './dashboard/digital-website/media/video-gallery/video-gallery.component';
 import { MyAccountComponent } from './dashboard/digital-website/my-account/my-account.component';
 import { ProductsComponent } from './dashboard/digital-website/products/products.component';
+import { ServicesComponent } from './dashboard/digital-website/services/services.component';
 
 const routes: Routes = [
   {path:"auth",component:AuthComponent,children:[
@@ -34,6 +35,7 @@ const routes: Routes = [
       {path:"social-media",component:SocialMediaComponent},
       {path:"about-us",component:AboutUsComponent},
       {path:"contact-us",component:ContactInforamtionsComponent},
+      {path:"services",component:ServicesComponent},
       {path:"payments",component:PaymentsComponent},
       {path:"my-account",component:MyAccountComponent},
       {path:"my-website",component:ShowWebsiteTemplateComponent},

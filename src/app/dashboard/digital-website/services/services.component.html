@@ -1,0 +1,93 @@
+<div class="d-flex justify-content-between border-bottom py-2">
+    <h4 class="font-weight-normal">Products</h4>
+    <button type="button" class="btn btn-light rounded-0 px-3 border btn-sm"
+        (click)="addServiceModalOpen(addService)">Add Services</button>
+</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+      <div class="col" *ngFor="let service of services; let i = index">
+        <div class="card">
+            <img [src]="service.imgUrl" class="card-img-top" height="100px">
+            <div class="card-body">
+              <h5 class="card-title">{{service.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">No. {{service.priorty}} Priory</h6>
+              <p class="card-text">{{service.desc}}</p>
+              <button (click)="updateServiceModalOpen(updateService,service.id)" class="card-link btn btn-link">Edit</button>
+              <button (click)="deleteService(service.id)" class="card-link btn btn-link">Delete</button>
+            </div>
+          </div>
+    </div>
+</div>
+
+<!-- Add Service Modal -->
+<ng-template #addService let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Add Services</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <form #form="ngForm" autocomplete="off" (submit)="AddServiceDetails(form)">
+                <div class="form-group">
+                    <label for="itemImg">Service Image</label>
+                    <input type="file" class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel 
+                    (change)="imageProcessing($event)">
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" #title="ngModel" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="priorty">Priorty</label>
+                    <input type="text" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="Description">Description</label>
+                    <textarea class="form-control" id="Description" rows="3" name="desc" #desc="ngModel"
+                        ngModel></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<!-- Update Service Modal -->
+<ng-template #updateService let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Update Service</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+
+        <form #form="ngForm" autocomplete="off" (submit)="UpdateServiceDetails(form)">
+            <div class="form-group">
+                <label for="itemImg">Service Image</label>
+                <input type="file" class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel 
+                (change)="imageProcessing($event)">
+            </div>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" #title="ngModel" ngModel [(ngModel)]="updateServiceObj.title">
+            </div>
+            <div class="form-group">
+                <label for="priorty">Priorty</label>
+                <input type="text" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel [(ngModel)]="updateServiceObj.priorty">
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" id="Description" rows="3" name="desc" #desc="ngModel"
+                    ngModel [(ngModel)]="updateServiceObj.desc"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </ng-template>

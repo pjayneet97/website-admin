@@ -34,6 +34,7 @@ import { VideoGalleryComponent } from './dashboard/digital-website/media/video-g
 import { HelpCenterComponent } from './dashboard/help-center/help-center.component';
 import { MyAccountComponent } from './dashboard/digital-website/my-account/my-account.component';
 import { ProductsComponent } from './dashboard/digital-website/products/products.component';
+import { ServicesComponent } from './dashboard/digital-website/services/services.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ProductsComponent } from './dashboard/digital-website/products/products
     HelpCenterComponent,
     MyAccountComponent,
     ProductsComponent,
+    ServicesComponent,
   ],
   imports: [
     BrowserModule,

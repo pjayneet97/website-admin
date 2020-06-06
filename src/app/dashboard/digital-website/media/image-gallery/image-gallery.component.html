@@ -1,8 +1,8 @@
 <div class="bg-white border text-center mb-5 pb-5">
     <div *ngFor="let img of uploadImgList; let i = index">
         <div class="alert alert-light border-bottom rounded-0 my-0 d-flex justify-content-between" role="alert">
-            <span class="text-left"><span class="font-weight-normal"><span class="text-primary"><svg class="bi bi-file-earmark"
-                            width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+            <span class="text-left"><span class="font-weight-normal"><span class="text-primary"><svg
+                            class="bi bi-file-earmark" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z" />
@@ -10,13 +10,13 @@
                         </svg></span> {{img.fileName}}</span><span class="text-muted file-size">&nbsp;&nbsp;&nbsp;
                     {{img.size}}K</span></span>
 
-            <span class="text-left cursor-pointer" (click)="removeFile(i)" title="Cancel"><svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
-                        <path fill-rule="evenodd"
-                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
-                    </svg></span>
+            <span class="text-left cursor-pointer" (click)="removeFile(i)" title="Cancel"><svg class="bi bi-x"
+                    width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                    <path fill-rule="evenodd"
+                        d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                </svg></span>
         </div>
     </div>
 
@@ -26,6 +26,21 @@
             (change)="imageProcessing($event)" #Image />
         <label for="file">Select Photos from Your Device</label>
         <br>
-        <button type="submit" class="btn btn-info rounded-0 px-4 my-3" [disabled]="Image.value==''">Upload</button>
+        <!-- <button type="submit" class="btn btn-info rounded-0 px-4 my-3" [disabled]="Image.value==''" (click)="uploadNow()">Upload</button> -->
+        <button type="submit" class="btn btn-info rounded-0 px-4 my-3"  (click)="uploadNow()">Upload</button>
+    </div>
+
+</div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+    <div class="col">
+        <div class="card bg-dark text-white">
+            <img src="..." class="card-img" alt="...">
+            <div class="card-img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+                <p class="card-text">Last updated 3 mins ago</p>
+            </div>
+        </div>
     </div>
 </div>
