@@ -35,6 +35,7 @@ import { HelpCenterComponent } from './dashboard/help-center/help-center.compone
 import { MyAccountComponent } from './dashboard/digital-website/my-account/my-account.component';
 import { ProductsComponent } from './dashboard/digital-website/products/products.component';
 import { ServicesComponent } from './dashboard/digital-website/services/services.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ServicesComponent } from './dashboard/digital-website/services/services
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    NgxUiLoaderModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

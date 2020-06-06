@@ -1,5 +1,5 @@
 <div class="bg-white border text-center mb-5 pb-5">
-    <div *ngFor="let img of uploadImgList; let i = index">
+<!--     <div *ngFor="let img of uploadImgList; let i = index">
         <div class="alert alert-light border-bottom rounded-0 my-0 d-flex justify-content-between" role="alert">
             <span class="text-left"><span class="font-weight-normal"><span class="text-primary"><svg
                             class="bi bi-file-earmark" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -18,7 +18,7 @@
                         d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
                 </svg></span>
         </div>
-    </div>
+    </div> -->
 
 
     <div class="custom-file py-5">
@@ -27,20 +27,15 @@
         <label for="file">Select Photos from Your Device</label>
         <br>
         <!-- <button type="submit" class="btn btn-info rounded-0 px-4 my-3" [disabled]="Image.value==''" (click)="uploadNow()">Upload</button> -->
-        <button type="submit" class="btn btn-info rounded-0 px-4 my-3"  (click)="uploadNow()">Upload</button>
+<!--         <button type="submit" class="btn btn-info rounded-0 px-4 my-3"  (click)="uploadNow()">Upload</button> -->
     </div>
 
 </div>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
-    <div class="col">
+    <div *ngFor="let image of gallery" class="col-lg-3">
         <div class="card bg-dark text-white">
-            <img src="..." class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                <p class="card-text">Last updated 3 mins ago</p>
-            </div>
+            <img src="{{image.imgUrl}}" class="card-img" onError="this.src='https://static1.squarespace.com/static/582f2a75414fb5c5d7172211/t/5ba29eacb8a045e82a32378a/1537384155646/blank-thumbnail.jpg?format=1500w'">
+            <button (click)="removeFile(image.id)">Delete</button>
         </div>
     </div>
 </div>

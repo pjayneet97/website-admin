@@ -31,16 +31,17 @@ export class AuthService {
     return this.afAuth.createUserWithEmailAndPassword(cred.email, cred.password).then(res => {
       localStorage.setItem("uid", res.user.uid)
       localStorage.setItem("email", res.user.email)
-      return this.db.collection("users").doc(res.user.uid).set(Object.assign({}, profileInfo)).then(res => {
-        this.router.navigateByUrl("/dashboard")
-        this.common.showToast("success", "Successfull", "Your Account is Successfully Created")
-        return res
+      this.router.navigateByUrl("/dashboard")
+      this.common.showToast("success", "Successfull", "Your Account is Successfully Created")
+      this.db.collection("users").doc(res.user.uid).set(Object.assign({}, profileInfo)).then(res => {
+       console.log(res)
       })
     }).catch(err => {
       // code to generate a notification alert of wrong credentials
       this.common.showToast("error", "Error", err)
       return err
     }).finally(() => {
+      console.log("stop loader")
       this.common.stopLoader()
     })
   }
@@ -48,7 +49,6 @@ export class AuthService {
   signIn(email, password) {
     this.common.showLoader()
     console.log(email, password)
-
     return this.afAuth.signInWithEmailAndPassword(email, password).then(res => {
       localStorage.setItem("uid", res.user.uid)
       localStorage.setItem("email", res.user.email)
@@ -87,7 +87,9 @@ export class AuthService {
     this.common.showLoader()
     localStorage.removeItem("uid")
     localStorage.removeItem("email")
-    this.afAuth.signOut()
+    this.afAuth.signOut().then(res=>{
+      this.common.stopLoader()
+    })
   }
 
   getUid() {
