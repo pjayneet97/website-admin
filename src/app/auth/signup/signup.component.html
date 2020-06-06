@@ -15,10 +15,9 @@
             </p>
         </div>
         <div class="form-group">
-            <input type="text" placeholder="Enter your site Domain Name" name="domainName" ngModel required
-                [(ngModel)]="existdomain" (keypress)="OnlyText($event)">
-            <div *ngIf="isExist(existdomain)">
-                <small class="text-danger">{{existdomain}} is already taken</small>
+            <input type="text" (keyup)="onKey($event)" placeholder="Enter your site Domain Name" name="domainName" ngModel required>
+            <div *ngIf="isDomainExist">
+                <small class="text-danger">This Name is already taken</small>
             </div>
         </div>
         <div class="form-group">
@@ -26,7 +25,7 @@
         </div>
 
         <button type="submit" class="btn-primary border shadow-sm px-4 py-2 rounded-0"
-            [disabled]="!signupForm.valid">CREATE Account</button><br><br>
+            [disabled]="!signupForm.valid || isDomainExist">CREATE Account</button><br><br>
 
         <p>if you already have an account <span><a routerLink="/auth">Click here</a></span></p>
     </form>

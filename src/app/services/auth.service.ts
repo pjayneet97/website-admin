@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
+import * as firebase from 'firebase'
 
 
 @Injectable({
@@ -20,7 +21,6 @@ export class AuthService {
       else {
         localStorage.removeItem("uid")
         localStorage.removeItem("email")
-
         this.router.navigateByUrl("/auth")
       }
     })
@@ -33,9 +33,15 @@ export class AuthService {
       localStorage.setItem("email", res.user.email)
       this.router.navigateByUrl("/dashboard")
       this.common.showToast("success", "Successfull", "Your Account is Successfully Created")
-      this.db.collection("users").doc(res.user.uid).set(Object.assign({}, profileInfo)).then(res => {
-       console.log(res)
+      let today = firebase.firestore.Timestamp.fromDate(new Date()).toDate()
+      let seventhDay=today.getDate()+7
+      today.setDate(seventhDay)
+      let validity = firebase.firestore.Timestamp.fromDate(today)
+      console.log("now")
+      this.db.collection("users").doc(res.user.uid).set(Object.assign({}, {validity:validity,...profileInfo})).catch(err=>{
+        console.log(err)
       })
+  
     }).catch(err => {
       // code to generate a notification alert of wrong credentials
       this.common.showToast("error", "Error", err)
@@ -113,25 +119,18 @@ export class AuthService {
     })
   }
 
-  users: any;
-  domainName_list = [];
-  getDomains() {
-    this.db.collection("users").snapshotChanges().subscribe(data => {
-      this.users = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-          domainName: e.payload.doc.data()['domainName'],
-        };
-      })
-      for (var i = 0; i < this.users.length; i++) {
-        var domains = this.users[i]['domainName']
-        this.domainName_list.push(domains)
-      }
+
+  isDomainExist(input){    
+    return new Promise(resolve=>{
+      this.db.collection("users",ref=>ref.where("domainName","==",input)).get()
+       .subscribe(
+          (data) => {
+              resolve(data.docs.length);
+       })
     })
-    return this.domainName_list;
   }
 
   
 
-  // end class here
+
 }

@@ -9,12 +9,7 @@ import { NgModel } from '@angular/forms'
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  
-  email;
-  password;
-  error;
-  isCreated = false;
-  existdomain;
+  isDomainExist=false
   
   
 
@@ -30,21 +25,27 @@ export class SignupComponent implements OnInit {
     this.authService.createAccount(cred,profileInfo)
   }
 
-  OnlyText(event): boolean {
+/*   OnlyText(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode < 66 || charCode > 90) && (charCode < 97 || charCode > 122)) {
       return false;
     }
     return true;
-  }
+  } */
 
-  isExist(event){
-   if (this.authService.getDomains().includes(event)){
-    return true
-   }
-   else{
-    return false
-   }
+  onKey(event){
+    console.log(event.target.value)
+    if(event.target.value){
+      this.authService.isDomainExist(event.target.value).then(res=>{
+        console.log(res)
+        if(res>0){
+          this.isDomainExist=true
+        }
+        else{
+          this.isDomainExist=false
+        }
+      })
+    }
   }
 
 }
