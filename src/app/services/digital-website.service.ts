@@ -232,5 +232,18 @@ export class DigitalWebsiteService {
 
   }
 
+  paymentMethods(paymentIds,bankDetails) {
+    this.common.showLoader()
+    return this.db.collection("users").doc(this.auth.getUid()).update({ paymentsId: paymentIds, ...bankDetails }).then(res => {
+      this.common.showToast("success", "Update Successful", "Payments Updated Successfully")
+      return res;
+    }).catch(err => {
+      this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
+      return err;
+    }).finally(()=>{
+      this.common.stopLoader()
+    })
+  }
 
-}
+
+} 
