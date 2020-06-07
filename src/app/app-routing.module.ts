@@ -23,6 +23,7 @@ import { MyAccountComponent } from './dashboard/digital-website/my-account/my-ac
 import { ProductsComponent } from './dashboard/digital-website/products/products.component';
 import { ServicesComponent } from './dashboard/digital-website/services/services.component';
 import { ExtendValidityComponent } from './dashboard/digital-website/extend-validity/extend-validity.component';
+import { CarouselSlidesComponent } from './dashboard/digital-website/media/carousel-slides/carousel-slides.component';
 
 const routes: Routes = [
   {path:"auth",component:AuthComponent,children:[
@@ -47,6 +48,7 @@ const routes: Routes = [
         {path:"",component:MediaComponent},
         {path:"image-gallery",component:ImageGalleryComponent},
         {path:"vedio-gallery",component:VideoGalleryComponent},
+        {path:"Carousel-slides",component:CarouselSlidesComponent},
       ]},
     ]},
   ]},

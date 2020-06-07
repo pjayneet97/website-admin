@@ -16,14 +16,11 @@ export class ImageGalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.digitalService.getGallery().subscribe(res=>{
-      console.log(res)
       this.gallery=res
     })
   }
 
-
   imageProcessing(event) {
-    console.log(event.target.files)
     // let path = userid/gallery/docid
     
     for (var i = 0; i < event.target.files.length; i++) {
@@ -32,9 +29,6 @@ export class ImageGalleryComponent implements OnInit {
       };
 
     }
-  
-
-
 
   removeFile(id) {
     this.digitalService.delGalleryImage(id)

@@ -1,31 +1,31 @@
 <div class="bg-white border text-center mb-5 pb-5">
-    <div *ngFor="let video of uploadVideoList; let i = index">
-        <div class="alert alert-light border-bottom rounded-0 my-0 d-flex justify-content-between" role="alert">
-            <span class="text-left"><span class="font-weight-normal"><span class="text-primary"><svg class="bi bi-file-earmark"
-                            width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M4 1h5v1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6h1v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z" />
-                            <path d="M9 4.5V1l5 5h-3.5A1.5 1.5 0 0 1 9 4.5z" />
-                        </svg></span> {{video.fileName}}</span><span class="text-muted file-size">&nbsp;&nbsp;&nbsp;
-                    {{video.size}}K</span></span>
-
-            <span class="text-left" (click)="removeFile(i)"><svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
-                        <path fill-rule="evenodd"
-                            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
-                    </svg></span>
+    <form #form="ngForm" autocomplete="off" (submit)="AddYouTubeLinks(form)">
+        <div class="form-group">
+            <label for="videoLink">YouTube Video Link</label>
+            <input type="text" class="form-control" placeholder="Enter your youtube video link here" id="videoLink" name="youTubeLink" #youTubeLink="ngModel" ngModel>
         </div>
-    </div>
+        <div class="custom-file py-3">
+            <button type="submit" class="btn btn-info rounded-0 px-4" [disabled]="youTubeLink.value==''">Save</button>
+        </div>
+    </form>
+</div>
 
+<!-- <div>
+    <ul >
+        <li>{{link.id}} {{link.youTubeLink}}</li>
+    </ul>
+</div> -->
 
-    <div class="custom-file py-5">
-        <input type="file" name="file" id="file" class="inputfile custom-file-input" multiple
-            (change)="videoProcessing($event)" #video />
-        <label for="file">Select Videos from Your Device</label>
-        <br>
-        <button type="submit" class="btn btn-info rounded-0 px-4 my-3" [disabled]="video.value==''">Upload</button>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+    <div *ngFor="let link of uploadVideoList;" class="col-lg-3">
+        <div class="card bg-dark text-white">
+        https://www.youtube.com/embed/{{link.youTubeLink.slice(17)}}?controls=0
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{link.youTubeLink.slice(17)}}?controls=0" allowfullscreen></iframe>
+</div>
+
+            <button (click)="removeFile(link.id)">Delete</button>
+        </div>
     </div>
 </div>

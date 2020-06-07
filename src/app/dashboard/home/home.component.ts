@@ -79,7 +79,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.common.showLoader()
     this.authService.getProfile().subscribe(res=>{
-      console.log(res)
       this.cardDetails=res
       this.common.stopLoader()
     })

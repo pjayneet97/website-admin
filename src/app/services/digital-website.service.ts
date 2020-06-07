@@ -245,5 +245,72 @@ export class DigitalWebsiteService {
     })
   }
 
+  uploadSlideImg(file){
+    this.common.showLoader()
+    this.db.collection("users").doc(this.auth.getUid()).collection("carousel").add({}).then(res=>{
+      let path = this.auth.getUid() + "/carousel/" + res.id + "/image"
+      return this.storage.upload(path,file).then(url=>{
+        return this.db.collection("users").doc(this.auth.getUid()).collection("carousel").doc(res.id).set({imgUrl:url})
+      }).catch(err=>{
+        console.log(err)
+      })
+    }).catch(err=>{
+      console.log(err)
+    }).finally(()=>{
+      this.common.stopLoader()
+    })
+  }
+
+  getSlides(){
+    return this.db.collection("users").doc(this.auth.getUid()).collection("carousel").snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    )
+  }
+
+  delSlidesImage(id){
+    this.common.showLoader()
+    let path = this.auth.getUid() + "/carousel/" + id + "/image"
+    this.storage.deleteImage(path)
+    this.db.collection("users").doc(this.auth.getUid()).collection("carousel").doc(id).delete().finally(()=>{
+      this.common.stopLoader()
+    })
+  }
+
+
+  // Videos link
+  addYouTubeLinks(product) {
+    this.common.showLoader()
+    return this.db.collection("users").doc(this.auth.getUid()).collection("videos").add(product).then(res => {
+      return res;
+    }).catch(err => {
+      this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
+      return err;
+    }).finally(()=>{
+      this.common.stopLoader()
+    })
+  }
+
+  getYouTubeLinks() {
+    return this.db.collection("users").doc(this.auth.getUid()).collection("videos").snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+  }
+
+  getYouTubeLink(id) {
+    return this.db.collection("users").doc(this.auth.getUid()).collection("videos").doc(id).valueChanges()
+  }
+
+  deleteYouTubeLink(id) {
+    return this.db.collection("users").doc(this.auth.getUid()).collection("videos").doc(id).delete()
+  }
+
 
 } 

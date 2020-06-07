@@ -12,16 +12,22 @@ declare var RazorpayCheckout:any;
 })
 export class ExtendValidityComponent implements OnInit {
   years=1
+  totalCost=499;
   WindowRef
   constructor(public auth:AuthService,public https:HttpClient,public common:CommonService,public router:Router) { 
     this.WindowRef=window
   }
 
   ngOnInit(): void {
+    
+  }
+
+  selectYear(event){
+    let amount = event.target.value*499;
+    this.totalCost=amount;
   }
 
   proceedToPay(event){
-
     this.common.showLoader()
     if(Capacitor.getPlatform()=="web"){
       this.initiatePaymentModal(event);
@@ -63,7 +69,7 @@ export class ExtendValidityComponent implements OnInit {
       RazorpayCheckout.open(res)
     })
    
-   }
+   } 
 
    preparePaymentDetails(){
     let amount = this.years*499*100

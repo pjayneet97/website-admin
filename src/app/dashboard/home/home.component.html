@@ -1,7 +1,14 @@
 <div class="container scroll">
-  <h4 class="font-weight-normal">Card Validity</h4>
-  <p class="lead">{{cardDetails?.validity.toDate() | date}}</p>
-  <button routerLink="/dashboard/digital-website/extend-validity">Extnd Validity to One Year</button>
+
+  <div class="card shadow-sm jumbotron jumbotron-fluid bg-white">
+    <div class="container">
+      <h4 class="font-weight-normal">Free Rs.0/week</h4>
+      <p class="lead">Expires on {{cardDetails?.validity.toDate() | date}}</p>
+      <button routerLink="/dashboard/digital-website/extend-validity" class="btn btn-info rounded-0">Upgrade Validity</button>
+    </div>
+  </div>
+
+
   <h4 class="font-weight-normal">Select Theme</h4>
   <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
   <button routerLink="/dashboard/digital-website/my-website" class="btn btn-info rounded-0">My Website</button>

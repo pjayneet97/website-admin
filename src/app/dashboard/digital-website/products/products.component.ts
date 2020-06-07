@@ -51,7 +51,7 @@ export class ProductsComponent implements OnInit {
       }
     });
     this.getProdID = id;
-  }
+  } 
 
   ngOnInit(): void {
     this.digiService.getProducts().subscribe(res=>{

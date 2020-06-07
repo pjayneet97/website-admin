@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DigitalWebsiteService } from 'src/app/services/digital-website.service';
+import { NgForm } from '@angular/forms';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-video-gallery',
@@ -7,34 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoGalleryComponent implements OnInit {
 
-  uploadedVideos = {
-    fileName:"",
-    size:0,
-    type:"",
-  };
-  uploadVideoList=[];
+  uploadVideoList=[]
 
-  constructor() { }
+  constructor(
+    public digiService:DigitalWebsiteService,
+    public common: CommonService,
+  ) { }
 
   ngOnInit(): void {
+    this.digiService.getYouTubeLinks().subscribe(res=>{
+      console.log(res)
+      this.uploadVideoList=res;
+    });
   }
 
-  videoProcessing(event){
-    console.log(event.target.files)
-
-    for(var i=0;i<event.target.files.length;i++){
-      this.uploadedVideos = {
-        fileName:event.target.files[i].name,
-        size:event.target.files[i].size,
-        type:event.target.files[i].type,
-      };
-
-      this.uploadVideoList.push(this.uploadedVideos)
-    }
+  AddYouTubeLinks(form:NgForm){
+    let videoUrl = Object.assign({}, form.value);
+    this.digiService.addYouTubeLinks(videoUrl).then(res=>{
+      this.common.showToast("success", "Added Successful", "YouTube link added Successfully");
+      console.log(res);
+    }).catch(err=>{
+      console.log(err);
+    })
   }
 
-  removeFile(index){
-    this.uploadVideoList.splice(index,1)
+  removeFile(id){
+    this.digiService.deleteYouTubeLink(id);
   }
 
 }

@@ -38,6 +38,7 @@ import { ServicesComponent } from './dashboard/digital-website/services/services
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ExtendValidityComponent } from './dashboard/digital-website/extend-validity/extend-validity.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CarouselSlidesComponent } from './dashboard/digital-website/media/carousel-slides/carousel-slides.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     ServicesComponent,
     ExtendValidityComponent,
+    CarouselSlidesComponent,
   ],
   imports: [
     BrowserModule,
