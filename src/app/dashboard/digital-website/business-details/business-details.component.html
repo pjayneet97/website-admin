@@ -1,0 +1,22 @@
+<div class="container">
+    <h4 class="font-weight-normal">Business Informations</h4>
+    <hr>
+    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+      <fieldset class="border p-3 mb-3">
+        <legend class="w-auto">Business Logo:</legend>
+
+
+        <div class="text-left">
+            <img [src]="imgSrc" width="150px" height="150px" (click)="fileUploader.click()" style="cursor: pointer;">
+          </div>
+  
+        <div class="form-group">
+            <label for="itemImg">Brand logo</label>
+            <input type="file" accept="image/*" class="form-control" #fileUploader class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel 
+            (change)="imageProcessing($event)">
+        </div>
+  
+      </fieldset>
+      <button type="submit" class="btn btn-info rounded-0 px-4">Save</button>
+    </form>
+  </div>

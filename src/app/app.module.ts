@@ -39,6 +39,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ExtendValidityComponent } from './dashboard/digital-website/extend-validity/extend-validity.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselSlidesComponent } from './dashboard/digital-website/media/carousel-slides/carousel-slides.component';
+import { BusinessDetailsComponent } from './dashboard/digital-website/business-details/business-details.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { CarouselSlidesComponent } from './dashboard/digital-website/media/carou
     ServicesComponent,
     ExtendValidityComponent,
     CarouselSlidesComponent,
+    BusinessDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,131 +1,144 @@
 <div class="d-flex justify-content-between border-bottom py-2">
-    <h4 class="font-weight-normal">Products</h4>
-    <button type="button" class="btn btn-light rounded-0 px-3 border btn-sm" (click)="addProductModalOpen(addproduct)">Add Product</button>
+  <h4 class="font-weight-normal">Products</h4>
+  <button type="button" class="btn btn-light rounded-0 px-3 border btn-sm" (click)="addProductModalOpen(addproduct)">Add
+    Product</button>
 </div>
 
 <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Image</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Categories</th>
-        <th scope="col">Descriptions</th>
-        <th scope="col">Priorty</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of products; let i = index">
-        <th scope="row">{{i+1}}</th>
-        <td><img [src]="item.imgUrl" alt="Product Name" class="img-thumbnail" width="60px" height="60px"></td>
-        <td>{{item.itemName}}</td>
-        <td>Rs. {{item.itemPrice}}</td>
-        <td>{{item.itemCategory}}</td>
-        <td>{{item.itemDescription}}</td>
-        <td>{{item.priorty}}</td>
-        <td (click)="updateProductModalOpen(updateProduct,item.id)">
-            <svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-              </svg>
-        </td>
-        <td (click)="deleteProduct(item.id)">
-            <svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
-                <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
-              </svg>
-        </td>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Categories</th>
+      <th scope="col">Descriptions</th>
+      <th scope="col">Priorty</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td><img [src]="item.imgUrl" alt="Product Name" class="img-thumbnail" width="60px" height="60px"></td>
+      <td>{{item.itemName}}</td>
+      <td>Rs. {{item.itemPrice}}</td>
+      <td>{{item.itemCategory}}</td>
+      <td>{{item.itemDescription}}</td>
+      <td>{{item.priorty}}</td>
+      <td (click)="updateProductModalOpen(updateProduct,item.id)">
+        <svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+          <path fill-rule="evenodd"
+            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+        </svg>
+      </td>
+      <td (click)="deleteProduct(item.id)">
+        <svg class="bi bi-x" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd"
+            d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+          <path fill-rule="evenodd"
+            d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+        </svg>
+      </td>
 
-      </tr>
+    </tr>
 
-    </tbody>
-  </table>
+  </tbody>
+</table>
 
 
 
 <!-- Add Prodcust Modal -->
 <ng-template #addproduct let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Add New Product</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="container">
-        <form #form="ngForm" autocomplete="off" (submit)="AddproductDetails(form)">
-          <div class="form-group">
-            <label for="itemImg">Product Image</label>
-            <input type="file" class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel 
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add New Product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <form #form="ngForm" autocomplete="off" (submit)="AddproductDetails(form)">
+        <div class="form-group">
+          <label for="itemImg">Product Image</label>
+          <input type="file" class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel
             (change)="imageProcessing($event)">
         </div>
-          <div class="form-group">
-            <label for="name">Product Title</label>
-            <input type="text" class="form-control" id="name" name="itemName" #itemName="ngModel" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="price">Price</label>
-            <input type="text" class="form-control" id="price" name="itemPrice" #itemPrice="ngModel" (keypress)="priceOnly($event)" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="category">Category</label>
-            <input type="text" class="form-control" id="category" name="itemCategory" #itemCategory="ngModel" ngModel>
-          </div>
-          <div class="form-group">
-            <label for="desc">Description</label>
-            <input type="text" class="form-control" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel> 
-          </div>
-          <div class="form-group">
-            <label for="priorty">Priorty</label>
-            <input type="number" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel> 
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+        <div class="form-group">
+          <label for="name">Product Title</label>
+          <input type="text" class="form-control" id="name" name="itemName" #itemName="ngModel" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="text" class="form-control" id="price" name="itemPrice" #itemPrice="ngModel"
+            (keypress)="priceOnly($event)" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" class="form-control" id="category" name="itemCategory" #itemCategory="ngModel" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <input type="text" class="form-control" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="priorty">Priorty</label>
+          <input type="number" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-  </ng-template>
+  </div>
+</ng-template>
 
 <!-- Update Prodcust Modal -->
 <ng-template #updateProduct let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Update Product</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <div class="container">
-        <form #form="ngForm" autocomplete="off" (submit)="UpdateProductDetails(form)">
-          <div class="form-group">
-            <label for="itemImg">Product Image</label>
-            <input type="file" class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel 
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Update Product</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <form #form="ngForm" autocomplete="off" (submit)="UpdateProductDetails(form)">
+        <div class="form-group">
+          <label for="itemImg">Product Image</label>
+          <input type="file" class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel
             (change)="imageProcessing($event)">
         </div>
-          <div class="form-group">
-            <label for="name">Product Title</label>
-            <input type="text" class="form-control" id="name" name="itemName" #itemName="ngModel" ngModel [(ngModel)]="updateProducts.itemName">
-          </div>
-          <div class="form-group">
-            <label for="price">Price</label>
-            <input type="text" class="form-control" id="price" name="itemPrice" #itemPrice="ngModel" (keypress)="priceOnly($event)" ngModel [(ngModel)]="updateProducts.itemPrice">
-          </div>
-          <div class="form-group">
-            <label for="category">Category</label>
-            <input type="text" class="form-control" id="category" name="itemCategory" #itemCategory="ngModel" ngModel [(ngModel)]="updateProducts.itemCategory">
-          </div>
-          <div class="form-group">
-            <label for="desc">Description</label>
-            <input type="text" class="form-control" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel [(ngModel)]="updateProducts.itemDescription"> 
-          </div>
-          <div class="form-group">
-            <label for="priorty">Priorty</label>
-            <input type="text" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel [(ngModel)]="updateProducts.priorty"> 
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+        <div class="form-group">
+          <label for="name">Product Title</label>
+          <input type="text" class="form-control" id="name" name="itemName" #itemName="ngModel" ngModel
+            [(ngModel)]="updateProducts.itemName">
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="text" class="form-control" id="price" name="itemPrice" #itemPrice="ngModel"
+            (keypress)="priceOnly($event)" ngModel [(ngModel)]="updateProducts.itemPrice">
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <input type="text" class="form-control" id="category" name="itemCategory" #itemCategory="ngModel" ngModel
+            [(ngModel)]="updateProducts.itemCategory">
+        </div>
+        <div class="form-group">
+          <label for="desc">Description</label>
+          <input type="text" class="form-control" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel
+            [(ngModel)]="updateProducts.itemDescription">
+        </div>
+        <div class="form-group">
+          <label for="priorty">Priorty</label>
+          <input type="text" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel
+            [(ngModel)]="updateProducts.priorty">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-  </ng-template>
+  </div>
+</ng-template>

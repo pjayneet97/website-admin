@@ -34,13 +34,13 @@ export class DigitalWebsiteService {
     }).catch(err => {
       this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err;
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
 
   // Contact information
-  updateContactInfo(address, personalData) {
+  updateContactInfo(address, personalData, img?) {
     this.common.showLoader()
     return this.db.collection("users").doc(this.auth.getUid()).update({ address: address, ...personalData }).then(res => {
       this.common.showToast("success", "Update Successful", "Contact Details Updated Successfully")
@@ -48,7 +48,7 @@ export class DigitalWebsiteService {
     }).catch(err => {
       this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err;
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
@@ -61,7 +61,7 @@ export class DigitalWebsiteService {
     }).catch(err => {
       this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err;
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
@@ -79,7 +79,7 @@ export class DigitalWebsiteService {
     }).catch(err => {
       this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err;
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
@@ -90,10 +90,10 @@ export class DigitalWebsiteService {
     if (img) {
       return this.storage.upload(path, img).then(newUrl => {
         console.log("newUrl")
-         return this.updateProduct(id, { imgUrl: newUrl, ...proData });
-      }).catch(err=>{
+        return this.updateProduct(id, { imgUrl: newUrl, ...proData });
+      }).catch(err => {
         console.log(err)
-      }).finally(()=>{
+      }).finally(() => {
         this.common.stopLoader()
       })
     } else {
@@ -102,7 +102,7 @@ export class DigitalWebsiteService {
         return res
       }).catch(err => {
         return err;
-      }).finally(()=>{
+      }).finally(() => {
         this.common.stopLoader()
       })
     }
@@ -141,7 +141,7 @@ export class DigitalWebsiteService {
     }).catch(err => {
       this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err;
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
@@ -165,10 +165,10 @@ export class DigitalWebsiteService {
     let path = this.auth.getUid() + "/" + "services/" + id + "/image";
     if (img) {
       return this.storage.upload(path, img).then(newUrl => {
-         return this.updateService(id, { imgUrl: newUrl, ...serviceData });
-      }).catch(err=>{
+        return this.updateService(id, { imgUrl: newUrl, ...serviceData });
+      }).catch(err => {
         console.log(err)
-      }).finally(()=>{
+      }).finally(() => {
         this.common.stopLoader()
       })
     } else {
@@ -177,7 +177,7 @@ export class DigitalWebsiteService {
         return res
       }).catch(err => {
         return err;
-      }).finally(()=>{
+      }).finally(() => {
         this.common.stopLoader()
       })
     }
@@ -191,28 +191,28 @@ export class DigitalWebsiteService {
       return res
     }).catch(err => {
       console.log(err)
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
 
-  uploadGalleryImg(file){
+  uploadGalleryImg(file) {
     this.common.showLoader()
-    this.db.collection("users").doc(this.auth.getUid()).collection("gallery").add({}).then(res=>{
+    this.db.collection("users").doc(this.auth.getUid()).collection("gallery").add({}).then(res => {
       let path = this.auth.getUid() + "/gallery/" + res.id + "/image"
-      return this.storage.upload(path,file).then(url=>{
-        return this.db.collection("users").doc(this.auth.getUid()).collection("gallery").doc(res.id).set({imgUrl:url})
-      }).catch(err=>{
+      return this.storage.upload(path, file).then(url => {
+        return this.db.collection("users").doc(this.auth.getUid()).collection("gallery").doc(res.id).set({ imgUrl: url })
+      }).catch(err => {
         console.log(err)
       })
-    }).catch(err=>{
+    }).catch(err => {
       console.log(err)
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
 
-  getGallery(){
+  getGallery() {
     return this.db.collection("users").doc(this.auth.getUid()).collection("gallery").snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
@@ -222,17 +222,17 @@ export class DigitalWebsiteService {
     )
   }
 
-  delGalleryImage(id){
+  delGalleryImage(id) {
     this.common.showLoader()
     let path = this.auth.getUid() + "/gallery/" + id + "/image"
     this.storage.deleteImage(path)
-    this.db.collection("users").doc(this.auth.getUid()).collection("gallery").doc(id).delete().finally(()=>{
+    this.db.collection("users").doc(this.auth.getUid()).collection("gallery").doc(id).delete().finally(() => {
       this.common.stopLoader()
     })
 
   }
 
-  paymentMethods(paymentIds,bankDetails) {
+  paymentMethods(paymentIds, bankDetails) {
     this.common.showLoader()
     return this.db.collection("users").doc(this.auth.getUid()).update({ paymentsId: paymentIds, ...bankDetails }).then(res => {
       this.common.showToast("success", "Update Successful", "Payments Updated Successfully")
@@ -240,28 +240,28 @@ export class DigitalWebsiteService {
     }).catch(err => {
       this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err;
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
 
-  uploadSlideImg(file){
+  uploadSlideImg(file) {
     this.common.showLoader()
-    this.db.collection("users").doc(this.auth.getUid()).collection("carousel").add({}).then(res=>{
+    this.db.collection("users").doc(this.auth.getUid()).collection("carousel").add({}).then(res => {
       let path = this.auth.getUid() + "/carousel/" + res.id + "/image"
-      return this.storage.upload(path,file).then(url=>{
-        return this.db.collection("users").doc(this.auth.getUid()).collection("carousel").doc(res.id).set({imgUrl:url})
-      }).catch(err=>{
+      return this.storage.upload(path, file).then(url => {
+        return this.db.collection("users").doc(this.auth.getUid()).collection("carousel").doc(res.id).set({ imgUrl: url })
+      }).catch(err => {
         console.log(err)
       })
-    }).catch(err=>{
+    }).catch(err => {
       console.log(err)
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
 
-  getSlides(){
+  getSlides() {
     return this.db.collection("users").doc(this.auth.getUid()).collection("carousel").snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
@@ -271,11 +271,11 @@ export class DigitalWebsiteService {
     )
   }
 
-  delSlidesImage(id){
+  delSlidesImage(id) {
     this.common.showLoader()
     let path = this.auth.getUid() + "/carousel/" + id + "/image"
     this.storage.deleteImage(path)
-    this.db.collection("users").doc(this.auth.getUid()).collection("carousel").doc(id).delete().finally(()=>{
+    this.db.collection("users").doc(this.auth.getUid()).collection("carousel").doc(id).delete().finally(() => {
       this.common.stopLoader()
     })
   }
@@ -289,7 +289,7 @@ export class DigitalWebsiteService {
     }).catch(err => {
       this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
       return err;
-    }).finally(()=>{
+    }).finally(() => {
       this.common.stopLoader()
     })
   }
@@ -313,4 +313,28 @@ export class DigitalWebsiteService {
   }
 
 
+  uploadLogoImg(logo:any) {
+    this.common.showLoader()
+    let path = this.auth.getUid() + "/brand_logo";
+    return this.storage.upload(path, logo).then(imgUrl => {
+      this.db.collection("users").doc(this.auth.getUid()).update({ brand_logo: imgUrl })
+      this.common.showToast("success", "Update Successful", "Business details Updated Successfully")
+    }).catch(err => {
+      console.log(err)
+    }).finally(() => {
+      this.common.stopLoader()
+    })
+  }
+
+
 } 
+
+
+
+
+// img(filr){
+//  path = "uid/logo";
+//  this.storage.upload().then{
+//    this.db.col().usercol.docid.update({img:uimg})
+//  }
+// }
