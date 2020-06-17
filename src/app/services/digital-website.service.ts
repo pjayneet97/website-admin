@@ -329,12 +329,3 @@ export class DigitalWebsiteService {
 
 } 
 
-
-
-
-// img(filr){
-//  path = "uid/logo";
-//  this.storage.upload().then{
-//    this.db.col().usercol.docid.update({img:uimg})
-//  }
-// }
