@@ -17,6 +17,7 @@ export class ImageGalleryComponent implements OnInit {
   ngOnInit(): void {
     this.digitalService.getGallery().subscribe(res=>{
       this.gallery=res
+      console.log(this.gallery)
     })
   }
 

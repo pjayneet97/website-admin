@@ -8,12 +8,16 @@ import { DigitalWebsiteService } from 'src/app/services/digital-website.service'
   styleUrls: ['./contact-inforamtions.component.css']
 })
 export class ContactInforamtionsComponent implements OnInit {
-
+data:any
   constructor(
     private webService:DigitalWebsiteService
   ) { }
 
   ngOnInit() {
+    this.webService.getWebsiteData().subscribe(res=>{
+      console.log(res)
+      this.data = res
+    })
   }
 
   OnlyDigit(event): boolean {
@@ -30,9 +34,11 @@ export class ContactInforamtionsComponent implements OnInit {
     // console.log(data)
 
     let personalData = {
-      ownerName:data['fname']+" "+data['lname'],
-      phoneNo:data['phoneNoCode']+"-"+data['phoneNo'],
-      whatsappNo:data['whatsappNoCode']+"-"+data['whatsappNo'],
+      // ownerName:data['fname']+" "+data['lname'],
+      ownerName:data['fullname'],
+      phoneNo:data['phoneNo'],
+      // whatsappNo:data['whatsappNoCode']+"-"+data['whatsappNo'],
+      whatsappNo:data['whatsappNo'],
       email:data['email'],
       shopName:data['shopName']
     }

@@ -10,8 +10,7 @@ import { NgModel } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
   isDomainExist=false
-  
-  
+  password;
 
   constructor( private authService: AuthService ) { }
 
