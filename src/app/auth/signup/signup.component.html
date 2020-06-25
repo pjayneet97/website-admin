@@ -21,7 +21,14 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="password" placeholder="Create your Secret Password" name="password" ngModel required>
+            <input type="password" placeholder="Create your Secret Password" minlength="8" maxlength="12" name="password" ngModel required
+             #password="ngModel">
+            <p *ngIf="password.invalid && (password.dirty || password.touched)">
+                <small class="form-text text-danger" *ngIf="password.errors.required">Password is
+                    required.</small>
+                <small class="form-text text-danger" *ngIf="password.errors.minlength">Password must be at least
+                    8 characters long.</small>
+            </p>
         </div>
 
         <button type="submit" class="btn-primary border shadow-sm px-4 py-2 rounded-0"

@@ -7,52 +7,52 @@
 
       <div class="row form-group">
         <div class="col input-group mb-2">
-          <input type="text" class="form-control" placeholder="First name" name="fname" ngModel>
+          <input type="text" class="form-control" placeholder="Full name" name="fullname" [(ngModel)]="data.ownerName">
         </div>
-        <div class="col input-group mb-2">
+        <!-- <div class="col input-group mb-2">
           <input type="text" class="form-control" placeholder="Last name" name="lname" ngModel>
-        </div>
+        </div> -->
       </div>
 
       <div class="form-group">
         <div class="input-group mb-2 mr-sm-2 mb-2">
-          <div class="input-group-prepend">
+          <!-- <div class="input-group-prepend">
             <select class="custom-select rounded-0" name="phoneNoCode" ngModel>
               <option selected disabled>Country Code</option>
               <option value="91">91</option>
               <option value="92">92</option>
               <option value="93">93</option>
             </select>
-          </div>
-          <input type="text" class="form-control" placeholder="Phone Number" name="phoneNo" ngModel
+          </div> -->
+          <input type="text" class="form-control" placeholder="Phone Number" name="phoneNo" [(ngModel)]="data.phoneNo"
             (keypress)="OnlyDigit($event)" maxlength="10">
         </div>
       </div>
 
       <div class="form-group">
         <div class="input-group mb-2 mr-sm-2 mb-2">
-          <div class="input-group-prepend">
+          <!-- <div class="input-group-prepend">
             <select class="custom-select rounded-0" name="whatsappNoCode" ngModel>
               <option selected disabled>Country Code</option>
               <option value="91">91</option>
               <option value="92">92</option>
               <option value="93">93</option>
             </select>
-          </div>
-          <input type="text" class="form-control" placeholder="Whatsapp Number" name="whatsappNo" ngModel
+          </div> -->
+          <input type="text" class="form-control" placeholder="Whatsapp Number" name="whatsappNo" [(ngModel)]="data.whatsappNo"
             (keypress)="OnlyDigit($event)" maxlength="10">
         </div>
       </div>
 
       <div class="row form-group">
         <div class="col input-group mb-2">
-          <input type="email" class="form-control" placeholder="Email Address" name="email" ngModel>
+          <input type="email" class="form-control" placeholder="Email Address" name="email" [(ngModel)]="data.email">
         </div>
       </div>
 
       <div class="row form-group">
         <div class="col input-group mb-2">
-          <input type="text" class="form-control" placeholder="Shop Name" name="shopName" ngModel>
+          <input type="text" class="form-control" placeholder="Shop Name" name="shopName" [(ngModel)]="data.shopName">
         </div>
       </div>
 
@@ -64,11 +64,11 @@
 
       <div class="form-group">
         <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" placeholder="1234 Main St" name="area" ngModel>
+        <input type="text" class="form-control" placeholder="1234 Main St" name="area" [(ngModel)]="data.address.area">
       </div>
       <div class="form-group">
         <label for="inputState">Country</label>
-        <select class="form-control" name="country" ngModel>
+        <select class="form-control" name="country" [(ngModel)]="data.address.country">
           <option disabled>Choose Country</option>
           <option selected>India</option>
         </select>
@@ -76,11 +76,11 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">City</label>
-          <input type="text" class="form-control" name="city" ngModel>
+          <input type="text" class="form-control" name="city" [(ngModel)]="data.address.city">
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">State</label>
-          <select class="form-control" name="state" ngModel>
+          <select class="form-control" name="state" [(ngModel)]="data.address.state">
             <option disabled>Choose State</option>
             <option selected>Rajasthan</option>
             <option>Gujarat</option>
@@ -90,7 +90,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="inputZip">Zip Code</label>
-          <input type="text" class="form-control" name="zipCode" ngModel (keypress)="OnlyDigit($event)" maxlength="8"
+          <input type="text" class="form-control" name="zipCode" [(ngModel)]="data.address.zipCode" (keypress)="OnlyDigit($event)" maxlength="8"
           >
         </div>
       </div>

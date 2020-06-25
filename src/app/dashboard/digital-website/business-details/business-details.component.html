@@ -12,11 +12,20 @@
   
         <div class="form-group">
             <label for="itemImg">Brand logo</label>
-            <input type="file" accept="image/*" class="form-control" #fileUploader class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" ngModel 
+            <input type="file" accept="image/*" class="form-control" #fileUploader class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" [ngModel]="logoImage.brand_logo" 
             (change)="imageProcessing($event)">
         </div>
   
       </fieldset>
       <button type="submit" class="btn btn-info rounded-0 px-4">Save</button>
     </form>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+      <div class="col-lg-3">
+          <div class="card bg-dark text-white">
+              <img src="{{logoImage.brand_logo}}" class="card-img" onError="this.src='https://static1.squarespace.com/static/582f2a75414fb5c5d7172211/t/5ba29eacb8a045e82a32378a/1537384155646/blank-thumbnail.jpg?format=1500w'">
+              <!-- <button>Delete</button> -->
+          </div>
+      </div>
   </div>
+</div>
+  

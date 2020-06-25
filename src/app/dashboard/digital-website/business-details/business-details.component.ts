@@ -13,13 +13,17 @@ export class BusinessDetailsComponent implements OnInit {
   imgSrc: string = "https://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png";
   selectedImage: any = null;
   isSubmitted: boolean;
-
+  logoImage:any
   constructor(
     public digiService: DigitalWebsiteService,
     public common: CommonService,
   ) { }
 
   ngOnInit(): void {
+    this.digiService.getWebsiteData().subscribe(res=>{
+      console.log(res)
+      this.logoImage = res
+    })
   }
 
   onSubmit(form: NgForm) {
@@ -27,6 +31,8 @@ export class BusinessDetailsComponent implements OnInit {
     var filePath = `${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
     console.log(filePath);
     this.digiService.uploadLogoImg(this.selectedImage)
+    form.resetForm()
+    this.imgSrc = 'https://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png';
   }
 
   imageProcessing(event: any) {

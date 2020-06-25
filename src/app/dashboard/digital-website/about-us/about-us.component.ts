@@ -25,6 +25,7 @@ export class AboutUsComponent implements OnInit {
   ngOnInit() {
     this.webService.getWebsiteData().subscribe(res=>{
       if(res){
+        console.log(res)
         this.allWebSiteData=res
         // console.log(this.allWebSiteData.socialMedia)
         if (this.allWebSiteData.aboutUs){
