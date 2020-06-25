@@ -16,7 +16,7 @@ export class AuthService {
       if (res) {
         localStorage.setItem("uid", res.uid)
         localStorage.setItem("email", res.email)
-        this.router.navigateByUrl("/dashboard")
+        //this.router.navigateByUrl("/dashboard")
       }
       else {
         localStorage.removeItem("uid")
