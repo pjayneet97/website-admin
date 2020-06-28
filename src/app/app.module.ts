@@ -40,6 +40,8 @@ import { ExtendValidityComponent } from './dashboard/digital-website/extend-vali
 import { HttpClientModule } from '@angular/common/http';
 import { CarouselSlidesComponent } from './dashboard/digital-website/media/carousel-slides/carousel-slides.component';
 import { BusinessDetailsComponent } from './dashboard/digital-website/business-details/business-details.component';
+import { WebConfigComponent } from './dashboard/digital-website/web-config/web-config.component';
+import { MobileMenuComponent } from './dashboard/digital-website/mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { BusinessDetailsComponent } from './dashboard/digital-website/business-d
     ExtendValidityComponent,
     CarouselSlidesComponent,
     BusinessDetailsComponent,
+    WebConfigComponent,
+    MobileMenuComponent,
   ],
   imports: [
     BrowserModule,

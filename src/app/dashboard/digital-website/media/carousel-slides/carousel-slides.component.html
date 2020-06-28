@@ -1,24 +1,16 @@
 <div class="bg-white border text-center mb-5 pb-5">
-    
-        <div class="custom-file py-5">
-            <input type="file" name="file" id="file" class="inputfile custom-file-input" multiple
-                (change)="carouselSlideProcessing($event)" #Image />
-            <label for="file">Select Carousel Slides Images from Your Device</label>
-            <br>
-      
-        </div>
-    
+    <div class="custom-file py-5">
+        <input type="file" name="file" id="file" class="inputfile custom-file-input" multiple
+            (change)="carouselSlideProcessing($event)" #Image />
+        <label for="file">Select Carousel Slides Images from Your Device</label>
     </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-3">
-        <div *ngFor="let slide of slides" class="col-lg-3">
-            <div class="card bg-dark text-white">
-                <img src="{{slide.imgUrl}}" style="height: 200px;" class="card-img" onError="this.src='https://static1.squarespace.com/static/582f2a75414fb5c5d7172211/t/5ba29eacb8a045e82a32378a/1537384155646/blank-thumbnail.jpg?format=1500w'">
-                <button (click)="removeFile(slide.id)">Delete</button>
-            </div>
+</div>
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-3">
+    <div *ngFor="let slide of slides" class="col-lg-3 my-2">
+        <div class="card border-0 bg-transparent rounded-0">
+            <img src="{{slide.imgUrl}}" style="height: 200px;" class="card-img rounded-0"
+            onError="this.src='https://cdn.dribbble.com/users/696649/screenshots/4904230/lp-loader_1.gif'">
+            <button class="btn btn-info rounded-0 btn-sm" (click)="removeFile(slide.id)">Delete</button>
         </div>
     </div>
-    
-    
-    
-    
-    
+</div>

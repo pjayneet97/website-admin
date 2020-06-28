@@ -1,31 +1,29 @@
-<div class="bg-white border text-center mb-5 pb-5">
-    <form #form="ngForm" autocomplete="off" (submit)="AddYouTubeLinks(form)">
-        <div class="form-group">
-            <label for="videoLink">YouTube Video Link</label>
-            <input type="text" class="form-control" placeholder="Enter your youtube video link here" id="videoLink" name="youTubeLink" #youTubeLink="ngModel" ngModel>
+<div class="bg-white border text-center">
+    <div class="jumbotron jumbotron-fluid bg-transparent">
+        <div class="container">
+            <form #form="ngForm" autocomplete="off" (submit)="AddYouTubeLinks(form)">
+                <div class="form-group">
+                    <label for="videoLink">YouTube Video Link</label>
+                    <input type="text" class="form-control w-50 mx-auto" placeholder="Enter your youtube video link here" id="videoLink"
+                        name="youTubeLink" #youTubeLink="ngModel" ngModel required>
+                </div>
+                <button type="submit" class="btn btn-info rounded-0 px-5" [disabled]="youTubeLink.value==''">Save</button>
+            </form>
         </div>
-        <div class="custom-file py-3">
-            <button type="submit" class="btn btn-info rounded-0 px-4" [disabled]="youTubeLink.value==''">Save</button>
-        </div>
-    </form>
+      </div>
 </div>
-
-<!-- <div>
-    <ul >
-        <li>{{link.id}} {{link.youTubeLink}}</li>
-    </ul>
-</div> -->
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
-    <div *ngFor="let link of uploadVideoList;" class="col-lg-3">
-        <div class="card bg-dark text-white">
-        https://www.youtube.com/embed/{{link.youTubeLink.slice(17)}}?controls=0
+    <div *ngFor="let link of uploadVideoList;" class="col-lg-3 my-2">
+        <div class="card bg-white rounded-0 p-3">
+            https://www.youtube.com/embed/{{link.youTubeLink.slice(17)}}?controls=0
 
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{link.youTubeLink.slice(17)}}?controls=0" allowfullscreen></iframe>
-</div>
-
-            <button (click)="removeFile(link.id)">Delete</button>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/{{link.youTubeLink.slice(17)}}?controls=0"
+                    allowfullscreen></iframe>
+            </div>
+            <button class="btn btn-info rounded-0 btn-sm" (click)="removeFile(link.id)">Delete</button>
         </div>
     </div>
 </div>

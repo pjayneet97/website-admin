@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { CommonService } from 'src/app/services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +6,8 @@ import { CommonService } from 'src/app/services/common.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  cardDetails=null
-  constructor(public authService:AuthService,public common:CommonService) { }
+  
+  constructor() { }
 
   themeTemplates = [
     {
@@ -31,7 +29,7 @@ export class HomeComponent implements OnInit {
       id:4,
       title:"Best HTML and CSS template",
       thumbnailImgUrl:"https://themes.getbootstrap.com/wp-content/uploads/2018/04/screenshot-2-540x405.png"
-    },
+    },   
     {
       id:1,
       title:"Best HTML and CSS template",
@@ -51,37 +49,12 @@ export class HomeComponent implements OnInit {
       id:4,
       title:"Best HTML and CSS template",
       thumbnailImgUrl:"https://themes.getbootstrap.com/wp-content/uploads/2018/04/screenshot-2-540x405.png"
-    },
-    {
-      id:1,
-      title:"Best HTML and CSS template",
-      thumbnailImgUrl:"https://themes.getbootstrap.com/wp-content/uploads/2019/04/landkit-screenshot-540x405.png"
-    },
-    {
-      id:2,
-      title:"Best HTML and CSS template",
-      thumbnailImgUrl:"https://themes.getbootstrap.com/wp-content/uploads/2019/10/screenshot-1-540x405.jpg"
-    },
-    {
-      id:3,
-      title:"Best HTML and CSS template",
-      thumbnailImgUrl:"https://themes.getbootstrap.com/wp-content/uploads/2019/03/leap-1-540x405.png"
-    },
-    {
-      id:4,
-      title:"Best HTML and CSS template",
-      thumbnailImgUrl:"https://themes.getbootstrap.com/wp-content/uploads/2018/04/screenshot-2-540x405.png"
-    },
-    
+    },   
     
   ]
 
   ngOnInit(): void {
-    this.common.showLoader()
-    this.authService.getProfile().subscribe(res=>{
-      this.cardDetails=res
-      this.common.stopLoader()
-    })
+    
   }
 
 

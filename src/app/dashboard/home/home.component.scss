@@ -7,12 +7,16 @@
     font-size: 15px;
 }
 
-.scroll {
-    max-height: 90vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .scroll::-webkit-scrollbar {
-    width: 0px;
-  }
+@media(max-width:320px){
+    .template-title{
+        font-size: 10px;
+    }
+    .container h4{
+        font-size: 17px;
+    }
+    .container p{
+        font-size: 15px;
+        text-justify: auto;
+        letter-spacing: 2px;
+    }
+}

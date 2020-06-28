@@ -1,31 +1,24 @@
-<!-- <p>extend-validity works!</p>
-<input type="number" [(ngModel)]="years" placeholder="no of years"> -->
-
-
-<div class="container">
-<p class="lead">Total Price : Rs.{{totalCost}}/{{years}}year</p>
-<div class="form-group col-md-4">
-    <label for="inputYear">Select your Plan</label>
-    <select id="inputYear" class="form-control" [(ngModel)]="years" (change)="selectYear($event)">
-        <option selected>Choose your plan</option>
-        <option value="1">1 Year</option>
-        <option value="2">2 Year</option>
-        <option value="3">3 Year</option>
-        <option value="4">4 Year</option>
-      <option value="5">5 Year</option>
-      <option value="6">6 Year</option>
-      <option value="7">7 Year</option>
-      <option value="8">8 Year</option>
-      <option value="9">9 Year</option>
-      <option value="10">10 Year</option>
-      <option value="11">11 Year</option>
-      <option value="12">12 Year</option>
-    </select>
-</div>
-<div class="container">
-    <button (click)="proceedToPay($event)" class="btn btn-info rounded-0">Extend Validity to one year</button>
-</div>
-
-
-
+<div class="container scroll bg-transparent pt-3">
+    <div class="form-group col-md-4">
+        <p class="lead">Total Price : Rs.{{totalCost}}/{{years}}year</p>
+        <label for="inputYear">Select your Plan</label>
+        <select id="inputYear" class="form-control" [(ngModel)]="years" (change)="selectYear($event)">
+            <option selected>Choose your plan</option>
+            <option value="1">1 Year</option>
+            <option value="2">2 Year</option>
+            <option value="3">3 Year</option>
+            <option value="4">4 Year</option>
+            <option value="5">5 Year</option>
+            <option value="6">6 Year</option>
+            <option value="7">7 Year</option>
+            <option value="8">8 Year</option>
+            <option value="9">9 Year</option>
+            <option value="10">10 Year</option>
+            <option value="11">11 Year</option>
+            <option value="12">12 Year</option>
+        </select>
+    </div>
+    <div class="container">
+        <button (click)="proceedToPay($event)" class="btn btn-info rounded-0 px-5">Extend Validity to one year</button>
+    </div>
 </div>

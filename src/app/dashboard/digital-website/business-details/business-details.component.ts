@@ -13,7 +13,7 @@ export class BusinessDetailsComponent implements OnInit {
   imgSrc: string = "https://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png";
   selectedImage: any = null;
   isSubmitted: boolean;
-  logoImage:any
+  businessData:any
   constructor(
     public digiService: DigitalWebsiteService,
     public common: CommonService,
@@ -22,7 +22,7 @@ export class BusinessDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.digiService.getWebsiteData().subscribe(res=>{
       console.log(res)
-      this.logoImage = res
+      this.businessData = res
     })
   }
 

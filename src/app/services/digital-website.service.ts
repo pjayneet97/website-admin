@@ -126,8 +126,6 @@ export class DigitalWebsiteService {
     return this.db.collection("users").doc(this.auth.getUid()).collection("products").doc(id).delete()
   }
 
-
-
   addServices(serviceData, serviceImg) {
     this.common.showLoader()
     return this.db.collection("users").doc(this.auth.getUid()).collection("services").add(serviceData).then(res => {
@@ -234,7 +232,7 @@ export class DigitalWebsiteService {
 
   paymentMethods(paymentIds, bankDetails) {
     this.common.showLoader()
-    return this.db.collection("users").doc(this.auth.getUid()).update({ paymentsId: paymentIds, ...bankDetails }).then(res => {
+    return this.db.collection("users").doc(this.auth.getUid()).update({ payments: paymentIds, ...bankDetails }).then(res => {
       this.common.showToast("success", "Update Successful", "Payments Updated Successfully")
       return res;
     }).catch(err => {
@@ -313,7 +311,7 @@ export class DigitalWebsiteService {
   }
 
 
-  uploadLogoImg(logo:any) {
+  uploadLogoImg(logo: any) {
     this.common.showLoader()
     let path = this.auth.getUid() + "/brand_logo";
     return this.storage.upload(path, logo).then(imgUrl => {
@@ -326,7 +324,23 @@ export class DigitalWebsiteService {
     })
   }
 
+  // Meta Tags information
+  updateMetaDataTags(metaData) {
+    this.common.showLoader()
+    return this.db.collection("users").doc(this.auth.getUid()).update({ metaTags: metaData }).then(res => {
+      this.common.showToast("success", "Update Successful", "Meta Tags Updated Successfully")
+      return res;
+    }).catch(err => {
+      this.common.showToast("error", "Error Occoured", "Unable to perform this operation")
+      return err;
+    }).finally(() => {
+      this.common.stopLoader()
+    })
+  }
 
 
-} 
+
+
+
+}
 

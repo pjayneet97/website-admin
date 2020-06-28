@@ -1,31 +1,28 @@
-<div class="container">
-    <h4 class="font-weight-normal">Business Informations</h4>
-    <hr>
-    <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-      <fieldset class="border p-3 mb-3">
-        <legend class="w-auto">Business Logo:</legend>
-
-
-        <div class="text-left">
-            <img [src]="imgSrc" width="150px" height="150px" (click)="fileUploader.click()" style="cursor: pointer;">
-          </div>
-  
-        <div class="form-group">
-            <label for="itemImg">Brand logo</label>
-            <input type="file" accept="image/*" class="form-control" #fileUploader class="form-control-file" id="itemImg" name="itemImg" #itemImg="ngModel" [ngModel]="logoImage.brand_logo" 
-            (change)="imageProcessing($event)">
-        </div>
-  
-      </fieldset>
-      <button type="submit" class="btn btn-info rounded-0 px-4">Save</button>
-    </form>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
-      <div class="col-lg-3">
-          <div class="card bg-dark text-white">
-              <img src="{{logoImage.brand_logo}}" class="card-img" onError="this.src='https://static1.squarespace.com/static/582f2a75414fb5c5d7172211/t/5ba29eacb8a045e82a32378a/1537384155646/blank-thumbnail.jpg?format=1500w'">
-              <!-- <button>Delete</button> -->
-          </div>
+<div class="container scroll bg-transparent pt-3">
+  <h4 class="font-weight-normal">Business Informations</h4>
+  <hr>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+    <div class="col-lg-3 ml-4">
+      <div class="card bg-transparent border-0">
+        <img src="{{businessData.brand_logo}}" class="card-img"
+          onError="this.src='https://static1.squarespace.com/static/582f2a75414fb5c5d7172211/t/5ba29eacb8a045e82a32378a/1537384155646/blank-thumbnail.jpg?format=1500w'"
+          style="max-width: 100px;max-height: 100px;">
+        <p class="lead">{{businessData.shopName}}</p>
       </div>
+    </div>
   </div>
+  <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <fieldset class="border p-3 mb-3">
+      <legend class="w-auto">Business Logo:</legend>
+      <div class="text-left">
+        <img [src]="imgSrc" width="150px" height="150px" (click)="fileUploader.click()" style="cursor: pointer;">
+      </div>
+      <div class="form-group">
+        <label for="itemImg">Brand logo</label>
+        <input type="file" accept="image/*" class="form-control" #fileUploader class="form-control-file" id="itemImg"
+          name="itemImg" #itemImg="ngModel" [ngModel]="businessData.brand_logo" (change)="imageProcessing($event)">
+      </div>
+      <button type="submit" class="btn btn-info rounded-0 px-5">Save</button>
+    </fieldset>
+  </form>
 </div>
-  

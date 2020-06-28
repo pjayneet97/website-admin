@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="container scroll bg-transparent pt-3">
   <div class="row">
     <div class="col-sm text-left">
       <h4 class="font-weight-normal">Design your about page</h4>
@@ -7,17 +6,17 @@
       <form #form="ngForm" autocomplete="off" (submit)="saveAboutUs(form)">
         <div class="row form-group">
           <div class="col input-group mb-2">
-            <input type="text" class="form-control rounded-0" placeholder="Title" name="title" [ngModel]="aboutData.title">
+            <input type="text" class="form-control rounded-0" placeholder="Title" name="title"
+              [ngModel]="aboutData.title">
           </div>
         </div>
-
         <ckeditor [editor]="Editor" (change)="onChange($event)"></ckeditor>
-
-        <button type="submit" class="btn btn-info rounded-0 px-4 my-3">Save</button>
+        <button type="submit" class="btn btn-info rounded-0 px-5 my-3">Save</button>
       </form>
     </div>
     <div class="col-sm text-left">
-      <h4 class="font-weight-normal">Your about page</h4><hr>
+      <h4 class="font-weight-normal">Your about page</h4>
+      <hr>
       <div class="media position-relative card p-3 shadow-sm">
         <div class="media-body">
           <h5 class="mt-0">{{aboutData.title}}</h5>
@@ -26,5 +25,4 @@
       </div>
     </div>
   </div>
-
 </div>

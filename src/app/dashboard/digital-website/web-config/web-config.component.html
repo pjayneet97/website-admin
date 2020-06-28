@@ -1,0 +1,41 @@
+<div class="container scroll bg-transparent pt-3">
+    <h4 class="font-weight-normal">Website Configrations</h4>
+    <hr>
+    <form *ngIf="data" #form="ngForm" autocomplete="off" (submit)="getMetaTags(form)">
+        <fieldset class="border p-3 mb-3">
+            <legend class="w-auto">Meta Tags informations:</legend>
+            <div class="row">
+                <div class="col form-group mb-2">
+                    <label>Title</label>
+                    <input type="text" class="form-control"
+                        placeholder="Ex.:- Smart Star Investments Ltd - Company Profile and News" name="title"
+                        [(ngModel)]="data.metaTags.title">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group mb-2">
+                    <label>Description</label>
+                    <textarea class="form-control"
+                        placeholder="Ex.:- Smart Star Investments Ltd. operates as an investment company. The Company provides investment management services."
+                        name="description" rows="2" [(ngModel)]="data.metaTags.description"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group mb-2">
+                    <label>Keywords</label>
+                    <input type="text" class="form-control"
+                        placeholder="Ex.:- SMSTILZ, Smart Star Investments Ltd, NYSE, Nasdaq, S&P, FTSE, DJIA, DAX, SMSTILZ news, SMSTILZ stock, SMSTILZ stock price, stock, stock price"
+                        name="keyWords" [(ngModel)]="data.metaTags.keyWords">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col form-group mb-2">
+                    <label>Author Name</label>
+                    <input type="text" class="form-control" placeholder="Ex.:- John Duo" name="authorName"
+                        [(ngModel)]="data.metaTags.authorName">
+                </div>
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-info rounded-0 px-5">Save</button>
+    </form>
+</div>

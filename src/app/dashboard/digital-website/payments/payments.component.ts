@@ -8,12 +8,17 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./payments.component.scss'],
 })
 export class PaymentsComponent implements OnInit {
+  data:any;
 
   constructor(
-    public digitalService: DigitalWebsiteService
+    public webService: DigitalWebsiteService
   ){}
 
   ngOnInit(): void {
+    this.webService.getWebsiteData().subscribe(res => {
+      this.data = res
+      // console.log(this.data.paymentsId)
+    })
   }
 
   savePaymentMethod(form: NgForm) {
@@ -39,7 +44,7 @@ export class PaymentsComponent implements OnInit {
     }else{
       console.log(paymentsIds)
       console.log(bankData)
-      this.digitalService.paymentMethods(paymentsIds,bankData)
+      this.webService.paymentMethods(paymentsIds,bankData)
     }
   }
 

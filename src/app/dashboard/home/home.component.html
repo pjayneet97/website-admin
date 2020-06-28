@@ -1,41 +1,19 @@
-<div class="container scroll">
-
-  <div class="card shadow-sm jumbotron jumbotron-fluid bg-white">
-    <div class="container">
-      <!-- <h4 class="font-weight-normal">Free Rs.0/week</h4> -->
-      <p class="lead">Expires on {{cardDetails?.validity.toDate() | date}}</p>
-      <button routerLink="/dashboard/digital-website/extend-validity" class="btn btn-info rounded-0">Upgrade Validity</button>
-    </div>
-  </div>
-
-
+<div class="container scroll bg-transparent pt-3">
   <h4 class="font-weight-normal">Select Theme</h4>
   <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  <button routerLink="/dashboard/digital-website/my-website" class="btn btn-info rounded-0">My Website</button>
+  <button routerLink="/dashboard/digital-website/my-website" class="btn btn-info rounded-0 px-5">My Website</button>
   <hr>
 
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-    <div class="col mb-2" *ngFor="let item of themeTemplates;">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+    <div class="col my-3" *ngFor="let item of themeTemplates;">
       <div class="card">
-        <img src="{{item.thumbnailImgUrl}}"
-          class="card-img-top" alt="{{item.title}}">
+        <img src="{{item.thumbnailImgUrl}}" class="card-img-top" alt="{{item.title}}" onError="this.src='https://cdn.dribbble.com/users/696649/screenshots/4904230/lp-loader_1.gif'">
         <div class="card-body pl-2 py-3">
           <p class="card-text template-title">{{item.title}}</p>
-
           <button type="button" class="btn btn-info btn-sm rounded-0 mr-2">Select</button>
           <button type="button" class="btn btn-outline-info btn-sm rounded-0 mr-2">View</button>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-
-<div class="fixed-bottom p-0 pb-3 pr-3 text-right">
-  <a href="#" class="btn btn-info btn-lg rounded-circle" role="button">
-    <svg class="bi bi-pencil-square" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
-      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
-    </svg>
-  </a>
 </div>

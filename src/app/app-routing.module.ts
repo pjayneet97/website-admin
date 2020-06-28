@@ -25,7 +25,8 @@ import { ServicesComponent } from './dashboard/digital-website/services/services
 import { ExtendValidityComponent } from './dashboard/digital-website/extend-validity/extend-validity.component';
 import { CarouselSlidesComponent } from './dashboard/digital-website/media/carousel-slides/carousel-slides.component';
 import { BusinessDetailsComponent } from './dashboard/digital-website/business-details/business-details.component';
-
+import { WebConfigComponent } from './dashboard/digital-website/web-config/web-config.component';
+import { MobileMenuComponent } from './dashboard/digital-website/mobile-menu/mobile-menu.component';
 const routes: Routes = [
   {path:"auth",component:AuthComponent,children:[
     {path:"",component:SigninComponent},
@@ -45,6 +46,8 @@ const routes: Routes = [
       {path:"my-website",component:ShowWebsiteTemplateComponent},
       {path:"products",component:ProductsComponent},
       {path:"business-details",component:BusinessDetailsComponent},
+      {path:"website-configrations",component:WebConfigComponent},
+      {path:"mobile-menu",component:MobileMenuComponent},
 
       {path:"media",component:MediaComponent,children:[
         {path:"",component:MediaComponent},

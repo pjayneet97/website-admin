@@ -1,58 +1,51 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap border-bottom mb-4 mt-0">
-  <h4 class="font-weight-normal">Payments</h4>
-  <hr>
+<div class="container scroll bg-transparent pt-3">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap border-bottom mb-4 mt-0">
+    <h4 class="font-weight-normal">Payments</h4>
+    <hr>
+  </div>
+  <form *ngIf="data" #form="ngForm" autocomplete="off" (submit)="savePaymentMethod(form)">
+    <fieldset class="border p-3 mb-3">
+      <legend class="w-auto">Payments Id's:</legend>
+      <div class="form-group">
+        <label>Razor Pay ID</label>
+        <input type="text" class="form-control" placeholder="RazorPay Id" name="razorpay"
+          [(ngModel)]="data.paymentsId.razorPay">
+      </div>
+      <div class="form-group">
+        <label>Paytm Number</label>
+        <input type="text" class="form-control" placeholder="Paytm Number" name="paytm"
+          [(ngModel)]="data.paymentsId.paytm">
+      </div>
+      <div class="form-group">
+        <label>Phone Pay ID</label>
+        <input type="text" class="form-control" placeholder="PhonePay Id" name="phonePay"
+          [(ngModel)]="data.paymentsId.phonePay">
+      </div>
+      <div class="form-group">
+        <label>UPI ID</label>
+        <input type="text" class="form-control" placeholder="UPI Id" name="upi" [(ngModel)]="data.paymentsId.upi">
+      </div>
+      <div class="form-group">
+        <label>Google Pay ID</label>
+        <input type="text" class="form-control" placeholder="Google Pay Id" name="googlePay"
+          [(ngModel)]="data.paymentsId.googlePay">
+      </div>
+    </fieldset>
+    <fieldset class="border p-3 mb-3">
+      <legend class="w-auto">Bank Details:</legend>
+      <div class="form-group">
+        <label for="inputAddress">Account Holder Name</label>
+        <input type="text" class="form-control" placeholder="" name="acHoldName" [(ngModel)]="data.acHoldName">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Account No.</label>
+        <input type="text" class="form-control" placeholder="" name="acNo" [(ngModel)]="data.acNo">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">IFSC Code</label>
+        <input type="text" class="form-control" placeholder="" name="ifsc" [(ngModel)]="data.ifsc">
+      </div>
+    </fieldset>
+    <button type="submit" class="btn btn-info rounded-0 px-5">Save</button>
+  </form>
 </div>
-
-<form #form="ngForm" autocomplete="off" (submit)="savePaymentMethod(form)">
-  <fieldset class="border p-3 mb-3">
-    <legend class="w-auto">Payments Id's:</legend>
-
-
-    <div class="row form-group">
-      <div class="col input-group mb-2">
-        <input type="text" class="form-control" placeholder="RazorPay Id" name="razorpay" ngModel>
-      </div>
-    </div>
-    <div class="row form-group">
-      <div class="col input-group mb-2">
-        <input type="text" class="form-control" placeholder="Paytm Id" name="paytm" ngModel>
-      </div>
-    </div>
-    <div class="row form-group">
-      <div class="col input-group mb-2">
-        <input type="text" class="form-control" placeholder="PhonePay Id" name="phonePay" ngModel>
-      </div>
-    </div>
-    <div class="row form-group">
-      <div class="col input-group mb-2">
-        <input type="text" class="form-control" placeholder="UPI Id" name="upi" ngModel>
-      </div>
-    </div>
-    <div class="row form-group">
-      <div class="col input-group mb-2">
-        <input type="text" class="form-control" placeholder="Google Pay Id" name="googlePay" ngModel>
-      </div>
-    </div>
-
-  </fieldset>
-
-  <fieldset class="border p-3 mb-3">
-    <legend class="w-auto">Bank Details:</legend>
-
-    <div class="form-group">
-      <label for="inputAddress">Account Holder Name</label>
-      <input type="text" class="form-control" placeholder="" name="acHoldName" ngModel>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Account No.</label>
-      <input type="text" class="form-control" placeholder="" name="acNo" ngModel>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">IFSC Code</label>
-      <input type="text" class="form-control" placeholder="" name="ifsc" ngModel>
-    </div>
-
-  </fieldset>
-
-  <button type="submit" class="btn btn-info rounded-0 px-4">Save</button>
-</form>

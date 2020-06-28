@@ -1,39 +1,41 @@
-<div class="container center py-3">
-    <div class="text-left mb-2">
-        <h5>Create New Account</h5>
-    </div>
-    <hr>
-    <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
-        <div class="form-group">
-            <input type="email" placeholder="Enter your Email Address" name="email" ngModel required
-                [(ngModel)]="signupForm.name" #email="ngModel" minlength="10">
-            <p *ngIf="email.invalid && (email.dirty || email.touched)">
-                <small class="form-text text-danger" *ngIf="email.errors.required">Email is
-                    required.</small>
-                <small class="form-text text-danger" *ngIf="email.errors.minlength">Email must be at least
-                    10 characters long.</small>
-            </p>
+<div class="jumbotron jumbotron-fluid m-0">
+    <div class="container form-card py-3">
+        <div class="text-left mb-2">
+            <h5>Create New Account</h5>
         </div>
-        <div class="form-group">
-            <input type="text" (keyup)="onKey($event)" placeholder="Enter your site Domain Name" name="domainName" ngModel required>
-            <div *ngIf="isDomainExist">
-                <small class="text-danger">This Name is already taken</small>
+        <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
+            <div class="form-group">
+                <input type="email" placeholder="Enter your Email Address" name="email" ngModel required
+                    [(ngModel)]="signupForm.name" #email="ngModel" minlength="10">
+                <p *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <small class="form-text text-danger" *ngIf="email.errors.required">Email is
+                        required.</small>
+                    <small class="form-text text-danger" *ngIf="email.errors.minlength">Email must be at least
+                        10 characters long.</small>
+                </p>
             </div>
-        </div>
-        <div class="form-group">
-            <input type="password" placeholder="Create your Secret Password" minlength="8" maxlength="12" name="password" ngModel required
-             #password="ngModel">
-            <p *ngIf="password.invalid && (password.dirty || password.touched)">
-                <small class="form-text text-danger" *ngIf="password.errors.required">Password is
-                    required.</small>
-                <small class="form-text text-danger" *ngIf="password.errors.minlength">Password must be at least
-                    8 characters long.</small>
-            </p>
-        </div>
+            <div class="form-group">
+                <input type="text" (keyup)="onKey($event)" placeholder="Enter your site Domain Name" name="domainName"
+                    ngModel required>
+                <div *ngIf="isDomainExist">
+                    <small class="text-danger">This Name is already taken</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Create your Secret Password" minlength="8" maxlength="12"
+                    name="password" ngModel required #password="ngModel">
+                <p *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <small class="form-text text-danger" *ngIf="password.errors.required">Password is
+                        required.</small>
+                    <small class="form-text text-danger" *ngIf="password.errors.minlength">Password must be at least
+                        8 characters long.</small>
+                </p>
+            </div>
 
-        <button type="submit" class="btn-primary border shadow-sm px-4 py-2 rounded-0"
-            [disabled]="!signupForm.valid || isDomainExist">CREATE Account</button><br><br>
+            <button type="submit" class="btn-primary border shadow-sm px-4 py-2 rounded-0"
+                [disabled]="!signupForm.valid || isDomainExist">CREATE Account</button><br><br>
 
-        <p>if you already have an account <span><a routerLink="/auth">Click here</a></span></p>
-    </form>
+            <p>if you already have an account <span><a routerLink="/auth">Click here</a></span></p>
+        </form>
+    </div>
 </div>

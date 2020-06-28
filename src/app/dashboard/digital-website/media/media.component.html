@@ -1,25 +1,27 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap border-bottom mb-4 mt-0">
-    <h4 class="font-weight-normal">Add Media Gallery</h4>
-  <hr>
-</div>
+<div class="container scroll bg-transparent pt-3">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap border-bottom mb-4 mt-0">
+        <h4 class="font-weight-normal">Add Media Gallery</h4>
+        <hr>
+    </div>
 
-<ngb-tabset [justify]="currentJustify">
-    <ngb-tab>
-        <ng-template ngbTabTitle>Photos</ng-template>
-        <ng-template ngbTabContent>
-            <app-image-gallery></app-image-gallery>
-        </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-        <ng-template ngbTabTitle>Videos</ng-template>
-        <ng-template ngbTabContent>
-            <app-video-gallery></app-video-gallery>
-        </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-        <ng-template ngbTabTitle>sliders</ng-template>
-        <ng-template ngbTabContent>
-            <app-carousel-slides></app-carousel-slides>
-        </ng-template>
-    </ngb-tab>
-</ngb-tabset>
+    <ngb-tabset [justify]="currentJustify">
+        <ngb-tab>
+            <ng-template ngbTabTitle>Photos</ng-template>
+            <ng-template ngbTabContent>
+                <app-image-gallery></app-image-gallery>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+            <ng-template ngbTabTitle>Videos</ng-template>
+            <ng-template ngbTabContent>
+                <app-video-gallery></app-video-gallery>
+            </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+            <ng-template ngbTabTitle>sliders</ng-template>
+            <ng-template ngbTabContent>
+                <app-carousel-slides></app-carousel-slides>
+            </ng-template>
+        </ngb-tab>
+    </ngb-tabset>
+</div>
