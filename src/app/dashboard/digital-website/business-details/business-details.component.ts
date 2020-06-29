@@ -21,15 +21,11 @@ export class BusinessDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.digiService.getWebsiteData().subscribe(res=>{
-      console.log(res)
       this.businessData = res
     })
   }
 
   onSubmit(form: NgForm) {
-    // this.isSubmitted = true;
-    var filePath = `${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()}`;
-    console.log(filePath);
     this.digiService.uploadLogoImg(this.selectedImage)
     form.resetForm()
     this.imgSrc = 'https://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png';
@@ -41,12 +37,10 @@ export class BusinessDetailsComponent implements OnInit {
       reader.onload = (e: any) => this.imgSrc = e.target.result;
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
-      console.log(this.selectedImage);
     }
     else {
       this.imgSrc = 'https://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png';
       this.selectedImage = null;
-      console.log(this.selectedImage);
     }
   }
 

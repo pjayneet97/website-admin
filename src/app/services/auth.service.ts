@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 import * as firebase from 'firebase'
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -145,8 +144,5 @@ export class AuthService {
        })
     })
   }
-
-  
-
 
 }

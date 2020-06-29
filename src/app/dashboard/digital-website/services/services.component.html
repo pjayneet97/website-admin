@@ -40,15 +40,15 @@
                 </div>
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" #title="ngModel" ngModel>
+                    <input type="text" id="title" name="title" #title="ngModel" ngModel>
                 </div>
                 <div class="form-group">
                     <label for="priorty">Priorty</label>
-                    <input type="text" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel>
+                    <input type="text" id="priorty" name="priorty" #priorty="ngModel" ngModel>
                 </div>
                 <div class="form-group">
                     <label for="Description">Description</label>
-                    <textarea class="form-control" id="Description" rows="4" name="desc" #desc="ngModel"
+                    <textarea id="Description" rows="4" name="desc" #desc="ngModel"
                         ngModel></textarea>
                 </div>
 
@@ -77,15 +77,15 @@
             </div>
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" #title="ngModel" ngModel [(ngModel)]="updateServiceObj.title">
+                <input type="text" id="title" name="title" #title="ngModel" ngModel [(ngModel)]="updateServiceObj.title">
             </div>
             <div class="form-group">
                 <label for="priorty">Priorty</label>
-                <input type="text" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel [(ngModel)]="updateServiceObj.priorty">
+                <input type="number" id="priorty" name="priorty" #priorty="ngModel" ngModel [(ngModel)]="updateServiceObj.priorty">
             </div>
             <div class="form-group">
                 <label for="Description">Description</label>
-                <textarea class="form-control" id="Description" rows="4" name="desc" #desc="ngModel"
+                <textarea id="Description" rows="4" name="desc" #desc="ngModel"
                     ngModel [(ngModel)]="updateServiceObj.desc"></textarea>
             </div>
 

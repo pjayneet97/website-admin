@@ -71,24 +71,24 @@
         </div>
         <div class="form-group">
           <label for="name">Product Title</label>
-          <input type="text" class="form-control" id="name" name="itemName" #itemName="ngModel" ngModel>
+          <input type="text" id="name" name="itemName" #itemName="ngModel" ngModel>
         </div>
         <div class="form-group">
           <label for="price">Price</label>
-          <input type="text" class="form-control" id="price" name="itemPrice" #itemPrice="ngModel"
+          <input type="text"id="price" name="itemPrice" #itemPrice="ngModel"
             (keypress)="priceOnly($event)" ngModel>
         </div>
         <div class="form-group">
           <label for="category">Category</label>
-          <input type="text" class="form-control" id="category" name="itemCategory" #itemCategory="ngModel" ngModel>
+          <input type="text" id="category" name="itemCategory" #itemCategory="ngModel" ngModel>
         </div>
         <div class="form-group">
           <label for="desc">Description</label>
-          <input type="text" class="form-control" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel>
+          <input type="text" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel>
         </div>
         <div class="form-group">
           <label for="priorty">Priorty</label>
-          <input type="number" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel>
+          <input type="number" id="priorty" name="priorty" #priorty="ngModel" ngModel>
         </div>
         <button type="submit" class="btn btn-info rounded-0 px-5">Submit</button>
       </form>
@@ -114,27 +114,27 @@
         </div>
         <div class="form-group">
           <label for="name">Product Title</label>
-          <input type="text" class="form-control" id="name" name="itemName" #itemName="ngModel" ngModel
+          <input type="text" id="name" name="itemName" #itemName="ngModel" ngModel
             [(ngModel)]="updateProducts.itemName">
         </div>
         <div class="form-group">
           <label for="price">Price</label>
-          <input type="text" class="form-control" id="price" name="itemPrice" #itemPrice="ngModel"
+          <input type="text" id="price" name="itemPrice" #itemPrice="ngModel"
             (keypress)="priceOnly($event)" ngModel [(ngModel)]="updateProducts.itemPrice">
         </div>
         <div class="form-group">
           <label for="category">Category</label>
-          <input type="text" class="form-control" id="category" name="itemCategory" #itemCategory="ngModel" ngModel
+          <input type="text" id="category" name="itemCategory" #itemCategory="ngModel" ngModel
             [(ngModel)]="updateProducts.itemCategory">
         </div>
         <div class="form-group">
           <label for="desc">Description</label>
-          <input type="text" class="form-control" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel
+          <input type="text" id="desc" name="itemDescription" #itemDescription="ngModel" ngModel
             [(ngModel)]="updateProducts.itemDescription">
         </div>
         <div class="form-group">
           <label for="priorty">Priorty</label>
-          <input type="text" class="form-control" id="priorty" name="priorty" #priorty="ngModel" ngModel
+          <input type="text" id="priorty" name="priorty" #priorty="ngModel" ngModel
             [(ngModel)]="updateProducts.priorty">
         </div>
         <button type="submit" class="btn btn-info rounded-0 px-5">Submit</button>

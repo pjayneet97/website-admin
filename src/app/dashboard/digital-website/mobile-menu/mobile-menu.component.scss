@@ -1,0 +1,11 @@
+.nav-link{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #606060;
+}
+
+.nav-item:hover{
+    background-color: #f8f9fa;
+    .nav-link{
+        color: #606060;
+    }
+}

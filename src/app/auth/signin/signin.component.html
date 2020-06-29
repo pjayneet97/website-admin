@@ -1,7 +1,8 @@
 <div class="jumbotron jumbotron-fluid m-0">
     <div class="container form-card py-3">
-        <div class="text-left mb-2">
-            <h5>Please Login</h5>
+        <div class="mb-2">
+            <img src="https://splixcube.com/images/favicon.png" alt="Brand Logo" width="50" height="50"><br><br>
+            <h5 class="text-info">Please Login</h5>
         </div>
         <form (ngSubmit)="signin(signinForm)" #signinForm="ngForm">
             <div class="form-group">
@@ -18,7 +19,7 @@
                 </p>
             </div>
 
-            <button type="submit" class="btn-primary border shadow-sm px-4 py-2 rounded-0"
+            <button type="submit" class="btn-info border shadow-sm px-4 py-2 rounded-0"
                 [disabled]="!signinForm.valid">Login</button><br><br>
 
             <p>Forget Password <span><a routerLink="/auth/forget-password">Click here</a></span></p>

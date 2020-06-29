@@ -14,18 +14,6 @@
     align-items: center;
     text-align: center;
 }
-input[type="email"],input[type="text"],input[type="password"]{
-    width: 100%;
-    padding: 5px;
-    padding-left: 10px;
-    background-color: #fff;
-    color: rgb(54, 54, 54);
-    border: 0;
-    border-bottom: 1px solid #1A73E8;
-}
-input[type="email"],input[type="text"],input[type="password"]:focus{
-    outline: none;
-}
 
 form p{
     color: #222;

@@ -2,7 +2,7 @@
     <div class="form-group col-md-4">
         <p class="lead">Total Price : Rs.{{totalCost}}/{{years}}year</p>
         <label for="inputYear">Select your Plan</label>
-        <select id="inputYear" class="form-control" [(ngModel)]="years" (change)="selectYear($event)">
+        <select id="inputYear" [(ngModel)]="years" (change)="selectYear($event)">
             <option selected>Choose your plan</option>
             <option value="1">1 Year</option>
             <option value="2">2 Year</option>

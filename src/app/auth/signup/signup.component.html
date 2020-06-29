@@ -1,7 +1,8 @@
 <div class="jumbotron jumbotron-fluid m-0">
     <div class="container form-card py-3">
-        <div class="text-left mb-2">
-            <h5>Create New Account</h5>
+        <div class="mb-2">
+            <img src="https://splixcube.com/images/favicon.png" alt="Brand Logo" width="50" height="50"><br><br>
+            <h5 class="text-info">Create New Account</h5>
         </div>
         <form (ngSubmit)="signup(signupForm)" #signupForm="ngForm">
             <div class="form-group">
@@ -32,7 +33,7 @@
                 </p>
             </div>
 
-            <button type="submit" class="btn-primary border shadow-sm px-4 py-2 rounded-0"
+            <button type="submit" class="btn-info border shadow-sm px-4 py-2 rounded-0"
                 [disabled]="!signupForm.valid || isDomainExist">CREATE Account</button><br><br>
 
             <p>if you already have an account <span><a routerLink="/auth">Click here</a></span></p>

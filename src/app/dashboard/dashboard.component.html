@@ -6,12 +6,27 @@
             class="col-md-3 col-lg-2 d-md-block bg-white sidebar collapse border-right p-0 m-0 scroll">
             <div class="sidebar-sticky py-3">
                 <ul class="nav flex-column">
+                    <div class="sticky-top bg-white">
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
+                            <span>Expires on {{cardDetails?.validity.toDate() | date}}</span>
+                        </h6>
+                        <li class="nav-item bg-info">
+                            <a class="nav-link my-auto text-white"
+                                routerLink="/dashboard/digital-website/extend-validity">
+                                Upgrade Now
+                            </a>
+                        </li>
+                        <div class="dropdown-divider"></div>
+                    </div>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/dashboard/digital-website/my-website">
-                            <svg class="bi bi-eye mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z"/>
-                                <path fill-rule="evenodd" d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                              </svg>
+                            <svg class="bi bi-eye mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.134 13.134 0 0 0 1.66 2.043C4.12 11.332 5.88 12.5 8 12.5c2.12 0 3.879-1.168 5.168-2.457A13.134 13.134 0 0 0 14.828 8a13.133 13.133 0 0 0-1.66-2.043C11.879 4.668 10.119 3.5 8 3.5c-2.12 0-3.879 1.168-5.168 2.457A13.133 13.133 0 0 0 1.172 8z" />
+                                <path fill-rule="evenodd"
+                                    d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                            </svg>
                             My Website
                         </a>
                     </li>
@@ -29,28 +44,31 @@
                         </a>
                     </li>
                     <div class="dropdown-divider"></div>
-                    <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
                         <span>Website Configrations</span>
                     </h6>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/dashboard/digital-website/website-configrations">
-                            <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-code-slash mr-3" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0zm-.999-3.124a.5.5 0 0 1 .33.625l-4 13a.5.5 0 0 1-.955-.294l4-13a.5.5 0 0 1 .625-.33z"/>
-                              </svg>
+                            <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-code-slash mr-3"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0zm-.999-3.124a.5.5 0 0 1 .33.625l-4 13a.5.5 0 0 1-.955-.294l4-13a.5.5 0 0 1 .625-.33z" />
+                            </svg>
                             Configrations
                         </a>
                     </li>
-                    <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
                         <span>Appearance</span>
                     </h6>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/dashboard/digital-website/business-details">
-                            <svg class="bi bi-bootstrap mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M12 1H4a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zM4 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H4z"/>
-                                <path fill-rule="evenodd" d="M8.537 12H5.062V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396zM6.375 4.658v2.467h1.558c1.16 0 1.764-.428 1.764-1.23 0-.78-.569-1.237-1.541-1.237H6.375zm1.898 6.229H6.375V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377z"/>
-                              </svg>
+                            <svg class="bi bi-bootstrap mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M12 1H4a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3zM4 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H4z" />
+                                <path fill-rule="evenodd"
+                                    d="M8.537 12H5.062V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396zM6.375 4.658v2.467h1.558c1.16 0 1.764-.428 1.764-1.23 0-.78-.569-1.237-1.541-1.237H6.375zm1.898 6.229H6.375V8.162h1.822c1.236 0 1.887.463 1.887 1.348 0 .896-.627 1.377-1.811 1.377z" />
+                            </svg>
                             Business Details
                         </a>
                     </li>
@@ -72,8 +90,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/dashboard/digital-website/about-us">
-                            <svg class="bi bi-award mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg class="bi bi-award mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z"
                                     clip-rule="evenodd" />
@@ -84,10 +102,13 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/dashboard/digital-website/services">
-                            <svg class="bi bi-layout-text-window-reverse mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M2 1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
-                                <path fill-rule="evenodd" d="M5 15V4H4v11h1zM.5 4h15V3H.5v1zM13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z"/>
-                              </svg>
+                            <svg class="bi bi-layout-text-window-reverse mr-3" width="1.2em" height="1.2em"
+                                viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M2 1h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
+                                <path fill-rule="evenodd"
+                                    d="M5 15V4H4v11h1zM.5 4h15V3H.5v1zM13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5z" />
+                            </svg>
                             Add Services
                         </a>
                     </li>
@@ -104,8 +125,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/dashboard/digital-website/media">
-                            <svg class="bi bi-images mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <svg class="bi bi-images mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M12.002 4h-10a1 1 0 00-1 1v8a1 1 0 001 1h10a1 1 0 001-1V5a1 1 0 00-1-1zm-10-1a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2h-10z"
                                     clip-rule="evenodd" />
@@ -119,8 +140,7 @@
                         </a>
                     </li>
                     <div class="dropdown-divider"></div>
-                    <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
                         <span>Manage Products</span>
                     </h6>
                     <li class="nav-item">
@@ -138,8 +158,7 @@
                         </a>
                     </li>
                     <div class="dropdown-divider"></div>
-                    <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
                         <span>Configrations</span>
                     </h6>
                     <li class="nav-item">
@@ -157,9 +176,11 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/dashboard/digital-website/my-account">
-                            <svg class="bi bi-person mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                              </svg>
+                            <svg class="bi bi-person mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M13 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM3.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            </svg>
                             My Account
                         </a>
                     </li>
@@ -174,24 +195,18 @@
                     </li> -->
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/help">
-                            <svg class="bi bi-info-circle mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z"/>
-                                <circle cx="8" cy="4.5" r="1"/>
-                              </svg>
+                            <svg class="bi bi-info-circle mr-3" width="1.2em" height="1.2em" viewBox="0 0 16 16"
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
+                                <circle cx="8" cy="4.5" r="1" />
+                            </svg>
                             Help
                         </a>
                     </li>
-                    <div class="dropdown-divider"></div>
-                    <h6
-                        class="sidebar-heading d-flex justify-content-between align-items-center px-3 text-muted">
-                        <span>Expires on {{cardDetails?.validity.toDate() | date}}</span>
-                    </h6>
-                    <li class="nav-item">
-                        <a class="nav-link my-auto" routerLink="/dashboard/digital-website/extend-validity">
-                            Upgrade Now
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </nav>

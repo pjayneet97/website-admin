@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from '../app/services/auth-guard.service';
-import { CommonService } from 'src/app/services/common.service';
-
 import { AuthComponent } from '../app/auth/auth.component';
 import { SigninComponent } from '../app/auth/signin/signin.component';
 import { SignupComponent} from '../app/auth/signup/signup.component';
@@ -48,7 +46,6 @@ const routes: Routes = [
       {path:"business-details",component:BusinessDetailsComponent},
       {path:"website-configrations",component:WebConfigComponent},
       {path:"mobile-menu",component:MobileMenuComponent},
-
       {path:"media",component:MediaComponent,children:[
         {path:"",component:MediaComponent},
         {path:"image-gallery",component:ImageGalleryComponent},
@@ -58,7 +55,8 @@ const routes: Routes = [
     ]},
   ]},
   {path:"help",component:HelpCenterComponent},
-
+  {path: '', redirectTo: '/auth', pathMatch: 'full'},
+  {path: '**', redirectTo: '/auth', pathMatch: 'full',canActivate:[AuthGuardService]},
 ];
 
 @NgModule({

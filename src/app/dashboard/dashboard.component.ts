@@ -13,8 +13,6 @@ export class DashboardComponent implements OnInit {
   
   constructor(private authService:AuthService,public common:CommonService) { }
   
-  email=this.authService.getEmail();
-
   ngOnInit(): void {
     this.common.showLoader()
     this.authService.getProfile().subscribe(res=>{
@@ -23,8 +21,5 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  logout(){
-    this.authService.logOut()
-  }
-
 }
+ 
