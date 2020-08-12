@@ -1,7 +1,7 @@
 <div class="container scroll bg-transparent pt-3">
   <h4 class="font-weight-normal">Contact Informations</h4>
   <hr>
-  <form #form="ngForm" autocomplete="off" (submit)="contactInforamtions(form)">
+  <form *ngIf="data" #form="ngForm" autocomplete="off" (submit)="contactInforamtions(form)">
     <fieldset class="border p-3 mb-3">
       <legend class="w-auto">Personal Information:</legend>
       <div class="row form-group">

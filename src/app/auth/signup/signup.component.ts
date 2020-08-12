@@ -20,17 +20,18 @@ export class SignupComponent implements OnInit {
   signup(formData:NgForm) {
     let cred={email:formData.value.email,password:formData.value.password}
     let profileInfo={domainName:formData.value.domainName}
-
     this.authService.createAccount(cred,profileInfo)
   }
 
-/*   OnlyText(event): boolean {
+  OnlyText(event): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if ((charCode < 66 || charCode > 90) && (charCode < 97 || charCode > 122)) {
+      console.log("False : ",charCode)
       return false;
     }
+    console.log("True : ",charCode)
     return true;
-  } */
+  } 
 
   onKey(event){
     console.log(event.target.value)

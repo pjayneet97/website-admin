@@ -5,7 +5,7 @@
             (click)="addServiceModalOpen(addService)">Add Services</button>
     </div>
     
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 mt-3">
           <div class="col p-2" *ngFor="let service of services; let i = index">
             <div class="card rounded-0 shadow-sm">
                 <img [src]="service.imgUrl" class="card-img-top" height="150px">

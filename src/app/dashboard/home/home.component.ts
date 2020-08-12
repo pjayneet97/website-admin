@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  constructor(private auth: AuthService) { }
   
-  constructor() { }
+  user_website_url = "https://pradeepsuthar.github.io/paid_theam_templates/?id="+this.auth.getUid();
 
   themeTemplates = [
     {

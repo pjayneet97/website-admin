@@ -15,7 +15,6 @@ export class ContactInforamtionsComponent implements OnInit {
 
   ngOnInit() {
     this.webService.getWebsiteData().subscribe(res => {
-      console.log(res)
       this.data = res
     })
   }
@@ -29,15 +28,11 @@ export class ContactInforamtionsComponent implements OnInit {
   }
 
   contactInforamtions(form: NgForm) {
-    // console.log(form)
     let data = Object.assign({}, form.value);
-    // console.log(data)
 
     let personalData = {
-      // ownerName:data['fname']+" "+data['lname'],
       ownerName: data['fullname'],
       phoneNo: data['phoneNo'],
-      // whatsappNo:data['whatsappNoCode']+"-"+data['whatsappNo'],
       whatsappNo: data['whatsappNo'],
       email: data['email'],
       shopName: data['shopName']
@@ -54,8 +49,6 @@ export class ContactInforamtionsComponent implements OnInit {
     if (personalData.ownerName == '' || personalData.email == '' || personalData.phoneNo == '' || personalData.whatsappNo == '' || personalData.shopName == '') {
       alert("All Fileeds Are requied")
     } else {
-      console.log(personalData)
-      console.log(address)
       this.webService.updateContactInfo(address, personalData)
     }
 
