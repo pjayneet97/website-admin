@@ -6,29 +6,29 @@
       <legend class="w-auto">Personal Information:</legend>
       <div class="row form-group">
         <div class="col input-group mb-2">
-          <input type="text" placeholder="Full name" name="fullname" [(ngModel)]="data.ownerName">
+          <input type="text" placeholder="Full name" name="fullname" [ngModel]="data?.ownerName">
         </div>
       </div>
       <div class="form-group">
         <div class="input-group mb-2 mr-sm-2 mb-2">
-          <input type="text" placeholder="Phone Number" name="phoneNo" [(ngModel)]="data.phoneNo"
+          <input type="text" placeholder="Phone Number" name="phoneNo" [ngModel]="data?.phoneNo"
             (keypress)="OnlyDigit($event)" maxlength="10">
         </div>
       </div>
       <div class="form-group">
         <div class="input-group mb-2 mr-sm-2 mb-2">
           <input type="text" placeholder="Whatsapp Number" name="whatsappNo"
-            [(ngModel)]="data.whatsappNo" (keypress)="OnlyDigit($event)" maxlength="10">
+            [ngModel]="data?.whatsappNo" (keypress)="OnlyDigit($event)" maxlength="10">
         </div>
       </div>
       <div class="row form-group">
         <div class="col input-group mb-2">
-          <input type="email" placeholder="Email Address" name="email" [(ngModel)]="data.email">
+          <input type="email" placeholder="Email Address" name="email" [ngModel]="data?.email">
         </div>
       </div>
       <div class="row form-group">
         <div class="col input-group mb-2">
-          <input type="text" placeholder="Shop Name" name="shopName" [(ngModel)]="data.shopName">
+          <input type="text" placeholder="Shop Name" name="shopName" [ngModel]="data?.shopName">
         </div>
       </div>
     </fieldset>
@@ -36,11 +36,11 @@
       <legend class="w-auto">Address:</legend>
       <div class="form-group">
         <label for="inputAddress">Address</label>
-        <input type="text" placeholder="1234 Main St" name="area" [(ngModel)]="data.address.area">
+        <input type="text" placeholder="1234 Main St" name="area" [ngModel]="data?.address?.area">
       </div>
       <div class="form-group">
         <label for="inputState">Country</label>
-        <select name="country" [(ngModel)]="data.address.country">
+        <select name="country" [ngModel]="data?.address?.country">
           <option disabled>Choose Country</option>
           <option selected>India</option>
         </select>
@@ -48,11 +48,11 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">City</label>
-          <input type="text" name="city" [(ngModel)]="data.address.city">
+          <input type="text" name="city" [ngModel]="data?.address?.city">
         </div>
         <div class="form-group col-md-4">
           <label for="inputState">State</label>
-          <select name="state" [(ngModel)]="data.address.state">
+          <select name="state" [ngModel]="data?.address?.state">
             <option disabled>Choose State</option>
             <option selected>Rajasthan</option>
             <option>Gujarat</option>
@@ -62,8 +62,16 @@
         </div>
         <div class="form-group col-md-2">
           <label for="inputZip">Zip Code</label>
-          <input type="text" name="zipCode" [(ngModel)]="data.address.zipCode"
+          <input type="text" name="zipCode" [ngModel]="data?.address?.zipCode"
             (keypress)="OnlyDigit($event)" maxlength="8">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputZip">Latitude</label>
+          <input type="text" name="latitude" [ngModel]="data?.address?.latitude">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputZip">Longitude</label>
+          <input type="text" name="longitude" [ngModel]="data?.address?.longitude">
         </div>
       </div>
       

@@ -43,9 +43,11 @@ export class ContactInforamtionsComponent implements OnInit {
       state: data['state'],
       country: data['country'],
       city: data['city'],
-      zipCode: data['zipCode']
+      zipCode: data['zipCode'],
+      latitude: data['latitude'],
+      longitude: data['longitude']
     }
-
+    console.log(personalData,address)
     if (personalData.ownerName == '' || personalData.email == '' || personalData.phoneNo == '' || personalData.whatsappNo == '' || personalData.shopName == '') {
       alert("All Fileeds Are requied")
     } else {

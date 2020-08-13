@@ -25,6 +25,7 @@ import { CarouselSlidesComponent } from './dashboard/digital-website/media/carou
 import { BusinessDetailsComponent } from './dashboard/digital-website/business-details/business-details.component';
 import { WebConfigComponent } from './dashboard/digital-website/web-config/web-config.component';
 import { MobileMenuComponent } from './dashboard/digital-website/mobile-menu/mobile-menu.component';
+import { EnquiryComponent } from './dashboard/digital-website/enquiry/enquiry.component';
 const routes: Routes = [
   {path:"auth",component:AuthComponent,children:[
     {path:"",component:SigninComponent},
@@ -46,6 +47,7 @@ const routes: Routes = [
       {path:"business-details",component:BusinessDetailsComponent},
       {path:"website-configrations",component:WebConfigComponent},
       {path:"mobile-menu",component:MobileMenuComponent},
+      {path:'enquiry',component:EnquiryComponent},
       {path:"media",component:MediaComponent,children:[
         {path:"",component:MediaComponent},
         {path:"image-gallery",component:ImageGalleryComponent},

@@ -313,8 +313,10 @@ export class DigitalWebsiteService {
 
   uploadLogoImg(logo: any) {
     this.common.showLoader()
-    let path = this.auth.getUid() + "/brand_logo";
+    let path = this.auth.getUid() + "/brand_logo"
+    console.log("businessLogoPath",path)
     return this.storage.upload(path, logo).then(imgUrl => {
+
       this.db.collection("users").doc(this.auth.getUid()).update({ brand_logo: imgUrl })
       this.common.showToast("success", "Update Successful", "Business details Updated Successfully")
     }).catch(err => {
@@ -338,9 +340,13 @@ export class DigitalWebsiteService {
     })
   }
 
-
-
-
-
+  getAllEnquiry(){
+    return this.db.collection("users").doc(this.auth.getUid()).collection("customer-enquiry",ref=>ref.orderBy("timestamp","desc")).snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+  }
 }
-

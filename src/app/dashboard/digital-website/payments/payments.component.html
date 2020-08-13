@@ -9,41 +9,41 @@
       <div class="form-group">
         <label>Razor Pay ID</label>
         <input type="text" placeholder="RazorPay Id" name="razorpay"
-          [(ngModel)]="data.paymentsId.razorPay">
+          [ngModel]="data.paymentsId?.razorPay">
       </div>
       <div class="form-group">
         <label>Paytm Number</label>
         <input type="text" placeholder="Paytm Number" name="paytm"
-          [(ngModel)]="data.paymentsId.paytm">
+          [ngModel]="data?.paymentsId?.paytm" (keypress)="OnlyDigit($event)" maxlength="10">
       </div>
       <div class="form-group">
         <label>Phone Pay ID</label>
         <input type="text" placeholder="PhonePay Id" name="phonePay"
-          [(ngModel)]="data.paymentsId.phonePay">
+          [ngModel]="data?.paymentsId?.phonePay">
       </div>
       <div class="form-group">
         <label>UPI ID</label>
-        <input type="text" placeholder="UPI Id" name="upi" [(ngModel)]="data.paymentsId.upi">
+        <input type="text" placeholder="UPI Id" name="upi" [ngModel]="data?.paymentsId?.upi">
       </div>
       <div class="form-group">
         <label>Google Pay ID</label>
         <input type="text" placeholder="Google Pay Id" name="googlePay"
-          [(ngModel)]="data.paymentsId.googlePay">
+          [ngModel]="data?.paymentsId?.googlePay">
       </div>
     </fieldset>
     <fieldset class="border p-3 mb-3">
       <legend class="w-auto">Bank Details:</legend>
       <div class="form-group">
         <label for="inputAddress">Account Holder Name</label>
-        <input type="text" placeholder="" name="acHoldName" [(ngModel)]="data.acHoldName">
+        <input type="text" placeholder="" name="acHoldName" [ngModel]="data?.acHoldName">
       </div>
       <div class="form-group">
         <label for="inputAddress">Account No.</label>
-        <input type="text" placeholder="" name="acNo" [(ngModel)]="data.acNo">
+        <input type="number" placeholder="" name="acNo" [ngModel]="data?.acNo">
       </div>
       <div class="form-group">
         <label for="inputAddress">IFSC Code</label>
-        <input type="text" placeholder="" name="ifsc" [(ngModel)]="data.ifsc">
+        <input type="text" placeholder="" name="ifsc" [ngModel]="data?.ifsc">
       </div>
     </fieldset>
     <button type="submit" class="btn btn-info rounded-0 px-5">Save</button>

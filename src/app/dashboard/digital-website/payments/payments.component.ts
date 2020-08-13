@@ -21,6 +21,14 @@ export class PaymentsComponent implements OnInit {
     })
   }
 
+  OnlyDigit(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if ((charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
   savePaymentMethod(form: NgForm) {
     let data = Object.assign({}, form.value);
     // console.log(data)

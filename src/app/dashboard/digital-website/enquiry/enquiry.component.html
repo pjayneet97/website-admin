@@ -1,0 +1,30 @@
+<div class="container scroll bg-transparent pt-3">
+    <h4 class="font-weight-normal">Recent Enquiry</h4>
+    <hr>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 mt-3">
+      <div class="col-md-12 ml-4">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Sr No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mobile No.</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Enquiry Now</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let enquiry of allEnquiry;let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{enquiry.customer_name}}</td>
+                    <td>{{enquiry.customer_mobile_no}}</td>
+                    <td>{{enquiry.customer_message}}</td>
+                    <td><a href="tel:{{enquiry.customer_mobile_no}}" class="btn btn-success">Call</a></td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      </div>
+    </div>
+  </div>

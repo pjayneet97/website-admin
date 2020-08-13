@@ -42,6 +42,7 @@ import { CarouselSlidesComponent } from './dashboard/digital-website/media/carou
 import { BusinessDetailsComponent } from './dashboard/digital-website/business-details/business-details.component';
 import { WebConfigComponent } from './dashboard/digital-website/web-config/web-config.component';
 import { MobileMenuComponent } from './dashboard/digital-website/mobile-menu/mobile-menu.component';
+import { EnquiryComponent } from './dashboard/digital-website/enquiry/enquiry.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { MobileMenuComponent } from './dashboard/digital-website/mobile-menu/mob
     BusinessDetailsComponent,
     WebConfigComponent,
     MobileMenuComponent,
+    EnquiryComponent,
   ],
   imports: [
     BrowserModule,

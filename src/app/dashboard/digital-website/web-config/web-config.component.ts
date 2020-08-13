@@ -17,17 +17,21 @@ export class WebConfigComponent implements OnInit {
   ngOnInit(): void {
     this.webService.getWebsiteData().subscribe(res => {
       this.data = res
+      console.log(this.data)
     })
   }
 
   getMetaTags(form: NgForm) {
+    console.log(form.value)
     let data = Object.assign({}, form.value);
+    console.log(data)
     let metaData = {
       title: data['title'],
       description: data['description'],
       keyWords: data['keyWords'],
       authorName: data['authorName'],
     }
+    console.log("metaData",metaData)
     this.webService.updateMetaDataTags(metaData)
   }
 

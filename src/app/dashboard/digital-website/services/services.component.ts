@@ -40,6 +40,7 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
     this.digitalService.getServices().subscribe(res => {
       this.services = res;
+      console.log("allServices",this.services)
     });
   }
 
